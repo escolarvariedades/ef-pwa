@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Programa de Fidelização de Clientes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport"  content="width=device-width, initial-scale=1, viewport-fit=cover"  />
+    <meta name="theme-color" content="#B51217" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Solyx Fidelidade" />
+    <link rel="manifest" href="./manifest.json">
+    <link
+      rel="apple-touch-icon"
+      href="https://www.dropbox.com/scl/fi/aerzmsvnnlsa6e14ket13/SF_512x512_Cliente.png?rlkey=tyn0narcis68k03is68sddtfs&raw=1"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Solyx Fidelidade" />
+    <meta name="msapplication-TileColor" content="#B51217" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="color-scheme" content="dark" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://www.dropbox.com/scl/fi/aerzmsvnnlsa6e14ket13/SF_512x512_Cliente.png?rlkey=tyn0narcis68k03is68sddtfs&raw=1"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://www.dropbox.com/scl/fi/aerzmsvnnlsa6e14ket13/SF_512x512_Cliente.png?rlkey=tyn0narcis68k03is68sddtfs&raw=1"
+    />
+    <!-- Fonte Oficial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Ícones -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* =====================================================
+        FIDELIDADE.NET.BR  V2
+         DESIGN SYSTEM
+         V2.01.1
+      ===================================================== */
+      /* =====================================================
+         VARIÁVEIS GLOBAIS
+      ===================================================== */
+      :root{
+      /* BACKGROUNDS */
+      --bg:#050505;
+      --surface:#111111;
+      --surface-2:#181818;
+      /* CORES DA MARCA */
+      --primary:#B51217;
+      --primary-hover:#D81E23;
+      --gold:#D4AF37;
+      --gold-light:#FFD95A;
+      /* TEXTOS */
+      --text:#F8F8F8;
+      --muted:#A4A4A4;
+      /* ESTADOS */
+      --success:#15B86A;
+      /* BORDAS */
+      --border:
+      rgba(255,255,255,.08);
+      /* SOMBRAS */
+      --shadow-sm:
+      0 5px 15px rgba(0,0,0,.25);
+      --shadow-md:
+      0 15px 40px rgba(0,0,0,.35);
+      --shadow-premium:
+      0 25px 80px rgba(0,0,0,.55);
+      /* RAIO DOS COMPONENTES */
+      --radius-sm:12px;
+      --radius-md:20px;
+      --radius-lg:32px;
+      /* ESPAÇAMENTO */
+      --space-xs:8px;
+      --space-sm:16px;
+      --space-md:24px;
+      --space-lg:48px;
+      --space-xl:80px;
+      --space-2xl:120px;
+      /* CONTAINER */
+      --container:1400px;
+      }
+      /* =====================================================
+         RESET GLOBAL
+      ===================================================== */
+      *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      }
+      html{
+      scroll-behavior:smooth;
+      }
+      body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+      }
+      img{
+      max-width:100%;
+      display:block;
+      }
+      a{
+      text-decoration:none;
+      color:inherit;
+      }
+      button{
+      font-family:inherit;
+      border:none;
+      cursor:pointer;
+      }
+      /* =====================================================
+         CONTAINER
+      ===================================================== */
+      .container{
+      width:100%;
+      max-width:var(--container);
+      margin:auto;
+      padding-left:32px;
+      padding-right:32px;
+      }
+      /* =====================================================
+         SEÇÕES
+      ===================================================== */
+      .sf-section{
+      padding:var(--space-2xl) 0;
+      }
+      .section-dark{
+      background:var(--surface);
+      }
+      /* =====================================================
+         GRID SYSTEM
+      ===================================================== */
+      .grid{
+      display:grid;
+      gap:var(--space-lg);
+      }
+      .grid-2{
+      grid-template-columns:repeat(2,1fr);
+      }
+      .grid-3{
+      grid-template-columns:repeat(3,1fr);
+      }
+      .grid-4{
+      grid-template-columns:repeat(4,1fr);
+      }
+      /* =====================================================
+         BOTÕES OFICIAIS
+      ===================================================== */
+      .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 34px;
+      border-radius:50px;
+      font-size:16px;
+      font-weight:600;
+      transition:.35s;
+      }    
+      .btn-primary{
+      background:var(--primary);
+      color:white;
+      box-shadow:
+      0 10px 30px rgba(181,18,23,.35);
+      }
+      .btn-primary:hover{
+      background:var(--primary-hover);
+      transform:translateY(-3px);
+      }
+      .btn-gold{
+      background:
+      linear-gradient(
+      135deg,
+      var(--gold),
+      var(--gold-light)
+      );
+      color:#111;
+      }
+      .btn-gold:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow-md);
+      }
+      .btn-outline{
+      border:1px solid var(--border);
+      background:transparent;
+      color:white;
+      }
+      .btn-outline:hover{
+      border-color:var(--gold);
+      color:var(--gold);
+      }
+      /* =====================================================
+         CARDS
+      ===================================================== */
+     .card{
+      background:var(--surface);
+      border:
+      1px solid var(--border);
+      border-radius:var(--radius-md);
+      padding:32px;
+      transition:.35s;
+      }
+      .card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-md);
+     }
+      .card-glass{
+      background:
+      rgba(255,255,255,.05);
+      backdrop-filter:blur(20px);
+      border:
+      1px solid rgba(255,255,255,.1);
+      }
+      .card-premium{
+      background:
+      linear-gradient(
+      145deg,
+      #181818,
+      #0b0b0b
+      );
+      border:
+      1px solid rgba(212,175,55,.25);
+      box-shadow:
+      var(--shadow-premium);
+      }
+      /* =====================================================
+         BADGES
+      ===================================================== */
+      .badge{
+      display:inline-flex;
+      padding:8px 18px;
+      border-radius:50px;
+      font-size:14px;
+      font-weight:600;
+      }
+      .badge-gold{
+      background:rgba(212,175,55,.15);
+      color:var(--gold-light);
+      }
+      /* =====================================================
+         UTILIDADES
+      ===================================================== */
+      .text-center{
+      text-align:center;
+      }
+      .flex-center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      }
+      .hidden{
+      display:none;
+      }
+      /* =====================================================
+         ANIMAÇÕES BASE
+      ===================================================== */
+      .fade-up{
+      opacity:0;
+      transform:translateY(30px);
+      animation:
+      fadeUp .8s forwards;
+      }
+      @keyframes fadeUp{
+      to{
+        opacity:1;
+        transform:translateY(0);
+        }
+      }
+      /* =====================================================
+         RESPONSIVO BASE
+      ===================================================== */
+      @media(max-width:900px){
+      .grid-2,
+      .grid-3,
+      .grid-4{
+      grid-template-columns:1fr;
+      }
+      .container{
+      padding-left:20px;
+      padding-right:20px;
+      }
+        .sf-section{
+        padding:80px 0;
+        }
+      }
+      /* =====================================================
+         HEADER PREMIUM
+      ===================================================== */
+      .header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background:
+      rgba(5,5,5,.35);
+      backdrop-filter:
+      blur(20px);
+      border-bottom:
+      1px solid rgba(255,255,255,.05);
+      transition:.35s;
+      }
+      .header.scrolled{
+      background:
+      rgba(5,5,5,.92);
+      box-shadow:
+      0 10px 40px rgba(0,0,0,.4);
+      }
+      .header-container{
+      height:80px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      }
+      /* LOGO */
+      .brand img{width:100px;height:auto;object-fit:contain;}
+
+      /* MENU */
+      .nav{display:flex; align-items:center; gap:35px;}
+      .nav a{font-size:15px; font-weight:500; color:var(--muted); transition:.3s;}
+      .nav a:hover{color:white;}
+      /* AÇÕES */
+      .header-actions{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      }
+      .header-actions .btn{padding:13px 25px;font-size:14px;}
+      /* MOBILE BUTTON */
+      .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      color:white;
+      font-size:28px;
+      margin-left:auto;
+      cursor:pointer;
+      }
+      /* RESPONSIVO */
+      @media(max-width:1100px){
+      .nav,
+      .header-actions{
+      display:none;
+      }
+      .menu-toggle{
+      display:block;
+      margin-left:auto;
+      }
+      .header-container{
+      height:80px;
+      }
+        .brand img{
+        width:115px;
+        }
+      }
+        /* =====================================================
+         HERO PREMIUM
+      ===================================================== */
+      .hero{
+      background:radial-gradient( circle at 80% 20%, rgba(212,175,55,.08), transparent 40% );
+          position:relative;
+          overflow:hidden;
+          padding-top:100px;
+          padding-bottom:80px;
+          min-height:auto;
+      }
+      /* LUZES DE FUNDO */
+      .hero::before{
+      content:"";
+      position:absolute;
+      width:700px;
+      height:700px;
+      right:-200px;
+      top:100px;
+      background:radial-gradient(circle,rgba(212,175,55,.22),transparent 65%);
+      filter:blur(20px);
+      z-index:-1;
+      }
+      .hero::after{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      left:-200px;
+      bottom:0;
+      background:radial-gradient(circle,rgba(181,18,23,.18),transparent 65%);
+      z-index:-1;
+      }
+      .hero-container{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:start;
+      gap:60px;
+      }
+      .hero-content h1{
+      font-size:
+      clamp(42px,5vw,72px);
+      line-height:1.05;
+      font-weight:800;
+      margin:25px 0;
+      }
+      .hero-content p{
+      font-size:20px;
+      color:var(--muted);
+      max-width:600px;
+      margin-bottom:40px;
+      }
+      .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      }
+      /* =====================================================
+         MOCKUP CELULAR
+      ===================================================== */
+      .hero-device{
+      display:flex;
+      justify-content:center;
+      }
+      .phone{
+      width:320px;
+      height:650px;
+      background:#000;
+      border:
+      8px solid #222;
+      border-radius:45px;
+      padding:15px;
+      box-shadow:
+      0 40px 100px rgba(0,0,0,.8);
+      position:relative;
+      animation:
+      floatPhone 5s ease-in-out infinite;
+      }
+      @keyframes floatPhone{
+      0%,100%{
+      transform:translateY(0);
+      }
+      50%{
+      transform:translateY(-20px);
+      }
+      }
+      .phone-camera{
+      width:90px;
+      height:25px;
+      background:#000;
+      border-radius:20px;
+      position:absolute;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:2;
+      }
+      .phone-screen{
+      height:100%;
+      background:
+      linear-gradient(
+      180deg,
+      #171717,
+      #090909
+      );
+      border-radius:35px;
+      padding:70px 20px 20px;
+      }
+      .app-header{
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:30px;
+      text-align:center;
+      }
+      .coin-card{
+      background:
+      linear-gradient(135deg,#D4AF37,#FFD95A);
+      color:#111;
+      padding:25px;
+      border-radius:25px;
+      }
+      .coin-card span{
+      font-size:13px;
+      }
+      .coin-card strong{
+      display:block;
+      font-size:42px;
+      }
+      .coin-card small{
+      font-weight:bold;
+      }
+      .level-card{margin-top:20px;padding:20px;background:rgba(255,255,255,.08);border-radius:20px;display:flex;align-items:center;gap:15px;}
+      .level-card i{font-size:35px;color:var(--gold);}
+      .app-options{
+      margin-top:25px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      }
+      .app-options div{
+      background:#151515;
+      padding:15px 5px;
+      border-radius:15px;
+      font-size:11px;
+      text-align:center;
+      }
+      .app-options i{
+      display:block;
+      font-size:22px;
+      margin-bottom:8px;
+      color:var(--gold);
+      }
+      @media(max-width:1100px){
+          .hero-container{
+              grid-template-columns:1fr;
+              text-align:center;
+              gap:45px;
+          }
+      .hero-content p{
+      margin-left:auto;
+      margin-right:auto;
+      }
+        .hero-buttons{
+        justify-content:center;
+        }
+      }
+      /* =====================================================
+         COMO FUNCIONA
+      ===================================================== */
+      .section-heading{
+      max-width:850px;
+      margin:0 auto 70px;
+      }
+      .steps{
+      margin-top:60px;
+      }
+      .step-card{
+      text-align:center;
+      }
+      .step-icon{
+      width:80px;
+      height:80px;
+      margin:0 auto 25px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:35px;
+      background:
+      rgba(212,175,55,.12);
+      color:
+      var(--gold);
+      }
+      .step-card h3{
+      font-size:22px;
+      margin-bottom:15px;
+      }
+      .step-card p{
+      color:var(--muted);
+      font-size:15px;
+      }
+      /* =====================================================
+         MOEDA
+      ===================================================== */
+      .coin-layout{
+      align-items:center;
+      }
+      .coin-visual{
+      display:flex;
+      justify-content:center;
+      }
+      .coin-fidelidade{
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      background:
+      radial-gradient(
+      circle at 30% 30%,
+      #fff4a8,
+      #D4AF37 40%,
+      #8a6500
+      );
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:140px;
+      font-weight:800;
+      color:#8B0000;
+      box-shadow:
+      0 0 80px rgba(212,175,55,.35);
+      animation:
+      coinFloat 5s ease-in-out infinite;
+      }
+      .coin-fidelidade span{
+      text-shadow:
+      0 5px 15px rgba(0,0,0,.4);
+      }
+      @keyframes coinFloat{
+      0%,100%{
+      transform:translateY(0)
+      rotateY(0deg);
+      }
+      50%{
+      transform:translateY(-20px)
+      rotateY(180deg);
+      }
+      }
+      .coin-content p{
+      color:var(--muted);
+      font-size:18px;
+      margin:25px 0;
+      }
+      .coin-highlight{
+      margin:30px 0;
+      padding:20px;
+      border-radius:20px;
+      background:
+      rgba(212,175,55,.08);
+      border:
+      1px solid rgba(212,175,55,.2);
+      display:flex;
+      align-items:center;
+      gap:15px;
+      }
+      .coin-highlight i{
+      color:var(--gold);
+      font-size:30px;
+      }
+      @media(max-width:900px){
+      .coin-layout{
+      grid-template-columns:1fr;
+      text-align:center;
+      }
+        .coin-highlight{
+        justify-content:center;
+        }
+      }
+      /* =====================================================
+         VITRINE PREMIUM DE PRÊMIOS
+      ===================================================== */
+      .prizes-grid{
+      margin-top:70px;
+      }
+      .prize-card{
+      overflow:hidden;
+      padding:0;
+      }
+      .prize-image{
+      height:300px;
+      overflow:hidden;
+      background:#080808;
+      }
+      .prize-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:.5s;
+      }
+      .prize-card:hover .prize-image img{
+      transform:scale(1.08);
+      }
+      .prize-content{
+      padding:35px;
+      }
+      .prize-content h3{
+      font-size:30px;
+      margin:20px 0 10px;
+      }
+      .prize-content p{
+      color:var(--muted);
+      margin-bottom:30px;
+      }
+      .prize-content .btn{
+      width:100%;
+      }
+      .prize-card:hover{
+      border-color:
+      rgba(212,175,55,.5);
+      }
+      /* =====================================================
+         APP EXPERIENCE
+      ===================================================== */
+      .app-layout{
+      align-items:center;
+      }
+      .app-preview{
+      display:flex;
+      justify-content:center;
+      }
+      .app-phone{
+      width:330px;
+      height:650px;
+      background:#050505;
+      border:
+      8px solid #222;
+      border-radius:45px;
+      padding:15px;
+      box-shadow:
+      var(--shadow-premium);
+      position:relative;
+      }
+      .app-notch{
+      position:absolute;
+      top:15px;
+      left:50%;
+      transform:translateX(-50%);
+      width:90px;
+      height:25px;
+      background:#000;
+      border-radius:20px;
+      }
+      .app-body{
+      height:100%;
+      background:
+      linear-gradient(
+      180deg,
+      #181818,
+      #090909
+      );
+      border-radius:35px;
+      padding:60px 20px 20px;
+      }
+      .mini-header{
+      text-align:center;
+      font-weight:600;
+      margin-bottom:30px;
+      }
+      .balance-card{
+      background:
+      linear-gradient(
+      135deg,
+      var(--gold),
+      var(--gold-light)
+      );
+      color:#111;
+      padding:25px;
+      border-radius:25px;
+      }
+      .balance-card span{
+      font-size:13px;
+      }
+      .balance-card strong{
+      display:block;
+      font-size:42px;
+      }
+      .customer-level{
+      margin-top:20px;
+      padding:20px;
+      border-radius:20px;
+      background:
+      rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      gap:15px;
+      }
+      .customer-level i{
+      font-size:35px;
+      color:var(--gold);
+      }
+      .customer-level span{
+      display:block;
+      color:var(--muted);
+      }
+      .progress-box{
+      margin-top:25px;
+      }
+      .progress-title{
+      font-size:14px;
+      margin-bottom:15px;
+      }
+      .progress-bar{
+      height:10px;
+      background:#222;
+      border-radius:20px;
+      overflow:hidden;
+      }
+      .progress-fill{
+      height:100%;
+      width:75%;
+      background:
+      linear-gradient(
+      90deg,
+      var(--gold),
+      var(--gold-light)
+      );
+      }
+      .progress-box span{
+      font-size:12px;
+      color:var(--muted);
+      }
+      .mini-actions{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:25px;
+      }
+      .mini-actions div{
+      background:#151515;
+      padding:12px 5px;
+      border-radius:15px;
+      text-align:center;
+      font-size:11px;
+      }
+      .mini-actions i{
+      display:block;
+      color:var(--gold);
+      font-size:20px;
+      margin-bottom:5px;
+      }
+      /* =====================================================
+         NÍVEIS DE FIDELIDADE
+      ===================================================== */
+      .levels-grid{
+      margin-top:70px;
+      }
+      .level-card{
+      padding:40px 25px;
+      border-radius:30px;
+      text-align:center;
+      background:
+      var(--surface);
+      border:
+      1px solid var(--border);
+      transition:.35s;
+      }
+      .level-card:hover{
+      transform:translateY(-10px);
+      }
+    .level-card span{ font-size:28px; font-weight:800; display:block;
+    margin-bottom:20px; }
+    .level-card p{ color:var(--muted); } 
+    .level-card.start span{ color:#aaa; }
+    .level-card.plus span{ color:#ddd; } 
+    .level-card.vip{ border-color:
+    rgba(212,175,55,.35); } 
+    .level-card.vip span{ color:var(--gold); }
+    .level-card.diamond{ background: linear-gradient( 145deg, #191919, #050505 );
+    border-color: rgba(212,175,55,.7); } 
+    .level-card.diamond span{ background:
+    linear-gradient( 90deg, var(--gold), var(--gold-light) );
+    -webkit-background-clip:text; color:transparent; }
+       /* =====================================================
+         RANKING
+      ===================================================== */
+     .ranking-board{ max-width:900px; margin:70px auto 0; display:flex;
+flex-direction:column; gap:20px; } 
+      .ranking-item{ display:flex;
+align-items:center; gap:25px; padding:25px 35px; border-radius:25px; background:
+var(--surface); border: 1px solid var(--border); transition:.35s; }
+      .ranking-item:hover{ transform:translateX(8px); } 
+      .medal{ font-size:45px; }
+      .rank-info{ flex:1; } 
+      .rank-info strong{ display:block; font-size:22px; }
+      .rank-info span{ color:var(--muted); } 
+      .rank-score{ font-weight:700;
+color:var(--gold-light); } 
+      .ranking-item.gold{ border-color:
+rgba(212,175,55,.5); background: linear-gradient( 90deg, rgba(212,175,55,.12),
+transparent ); } 
+      .ranking-item.silver{ border-color: rgba(190,190,190,.3); }
+      .ranking-item.bronze{ border-color: rgba(205,127,50,.4); }
+@media(max-width:600px){ body{ overflow-x:hidden; } 
+                        .ranking-item{ padding:20px;
+gap:15px; } 
+                        .medal{ font-size:35px; } 
+                        .rank-score{ font-size:14px; } 
+                        .hero{
+padding-top:85px; padding-bottom:60px; } 
+                        .hero-content h1{ font-size:38px; }
+.phone, .app-phone{ transform:scale(.9); } 
+                        .sf-section{ padding: 70px 20px; }
+.prize-content{ padding:25px; } 
+                        .cta-box{ padding: 60px 25px; } }
+      /* =====================================================
+         PLAYGROUND FIDELIDADE.NET.BR V2.08
+      ===================================================== */
+.playground-section{ position:relative; overflow:hidden; }
+      /* FUNDO ILUMINADO */
+.playground-section::before{ content:""; position:absolute; width:600px;
+height:600px; left:-250px; top:50%; transform:translateY(-50%); background:
+radial-gradient( circle, rgba(181,18,23,.16), transparent 65% );
+pointer-events:none; } 
+      /* CONTAINER PRINCIPAL */ 
+      .playground-box{
+position:relative; padding:60px 50px; border-radius:40px; background:
+linear-gradient( 145deg, #181818, #080808 ); border: 1px solid
+rgba(212,175,55,.25); box-shadow: 0 25px 80px rgba(0,0,0,.45); } 
+      /* TÍTULO */
+      .playground-heading{ max-width:850px; margin:0 auto 50px; text-align:center; }
+      .playground-heading h2{ font-size: clamp(34px,4vw,52px); line-height:1.1;
+margin:20px 0; } 
+      .playground-heading p{ color:var(--muted); font-size:18px;
+max-width:700px; margin:auto; } 
+      /* CARDS DOS JOGOS */
+      .playground-games{
+display:grid; grid-template-columns: repeat(3,1fr); gap:25px; } /* CARD */
+      .playground-game{ padding:35px 25px; text-align:center; border-radius:25px;
+background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+transition:.35s; } 
+      .playground-game:hover{ transform:translateY(-8px);
+border-color: rgba(212,175,55,.5); box-shadow: 0 20px 45px rgba(0,0,0,.35); } 
+      /*ÍCONE */ 
+      .playground-icon{ width:80px; height:80px; margin:0 auto 20px;
+border-radius:50%; display:flex; align-items:center; justify-content:center;
+font-size:38px; background: rgba(212,175,55,.12); color:var(--gold); }
+.playground-game h3{ font-size:23px; margin-bottom:12px; } 
+      .playground-game p{
+color:var(--muted); font-size:14px; line-height:1.7; }
+      /* CHAMADA CIFRAO */
+      .playground-sxc{ margin-top:40px; padding:22px 25px; border-radius:20px;
+text-align:center; background: rgba(212,175,55,.08); border: 1px solid
+rgba(212,175,55,.18); } 
+      .playground-sxc strong{ color:var(--gold-light); }
+      .playground-sxc span{ color:var(--muted); } /* RESPONSIVO */
+@media(max-width:900px){ 
+  .playground-box{ padding:45px 25px; }
+  .playground-games{ grid-template-columns:1fr; } 
+  .playground-heading h2{
+font-size:36px; } }
+      /* =====================================================
+         INDICAÇÃO
+      ===================================================== */
+  .referral-card{ padding:60px; border-radius:40px; background: linear-gradient(
+135deg, #181818, #090909 ); border: 1px solid rgba(212,175,55,.25);
+display:flex; align-items:center; justify-content:space-between; gap:40px; }
+      .referral-content h2{ font-size: clamp(32px,4vw,52px); line-height:1.1;
+margin:25px 0; } 
+      .referral-content p{ color:var(--muted); font-size:18px;
+max-width:650px; margin-bottom:35px; } 
+      .referral-icon{ width:160px;
+height:160px; border-radius:50%; display:flex; align-items:center;
+justify-content:center; background: rgba(212,175,55,.12); } 
+      .referral-icon i{
+font-size:70px; color:var(--gold); } @media(max-width:800px){ 
+        .referral-card{
+flex-direction:column; padding:40px 25px; text-align:center; } }
+
+      /* =====================================================
+         FAQ
+      ===================================================== */
+.faq-list{ max-width:900px; margin:60px auto 0; } 
+      .faq-item{
+background:var(--surface); border: 1px solid var(--border); border-radius:20px;
+margin-bottom:15px; overflow:hidden; } 
+      .faq-question{ width:100%; padding:25px
+30px; background:none; color:white; display:flex; justify-content:space-between;
+align-items:center; font-size:18px; font-weight:600; text-align:left; }
+      .faq-question i{ color:var(--gold); transition:.3s; } 
+      .faq-answer{ max-height:0;
+overflow:hidden; transition:.4s; } 
+      .faq-answer p{ padding:0 30px 25px;
+color:var(--muted); } 
+      .faq-item.active 
+      .faq-answer{ max-height:200px; }
+.faq-item.active 
+      .faq-question i{ transform:rotate(180deg); }
+      /* =====================================================
+         CTA FINAL
+      ===================================================== */
+      .cta-box{ text-align:center; padding:90px 40px; border-radius:40px; background:
+linear-gradient( 135deg, #181818, #080808 ); border: 1px solid
+rgba(212,175,55,.25); } 
+      .cta-box h2{ font-size: clamp(38px,5vw,64px);
+margin:25px 0; } 
+      .cta-box p{ font-size:20px; color:var(--muted);
+max-width:650px; margin:0 auto 40px; } 
+      .cta-buttons{ display:flex;
+justify-content:center; gap:20px; flex-wrap:wrap; }
+
+      /* =====================================================
+         FOOTER
+      ===================================================== */
+      .footer{ padding:50px 0; border-top: 1px solid var(--border);
+background:#030303; } 
+      .footer-container{ text-align:center; } 
+      .footer-brand img{
+width:180px; margin:0 auto 20px; } 
+      .footer-brand p{ color:var(--muted); }
+      .footer-copy{ margin-top:35px; font-size:14px; color:#777; }
+
+      /* =====================================================
+         ANIMAÇÕES PREMIUM V2.07
+      ===================================================== */
+.reveal{ opacity:0; transform: translateY(40px); transition: .8s ease; }
+.reveal.active{ opacity:1; transform: translateY(0); } 
+      .reveal-left{ opacity:0;
+transform: translateX(-50px); transition: .8s ease; } 
+      .reveal-left.active{
+opacity:1; transform: translateX(0); } 
+      .reveal-right{ opacity:0; transform:
+translateX(50px); transition: .8s ease; } 
+      .reveal-right.active{ opacity:1;
+transform: translateX(0); }
+      /* BARRA DE LEITURA */ 
+      #progressBar{ position:fixed;
+top:0; left:0; height:4px; width:0; background: linear-gradient( 90deg,
+var(--gold), var(--gold-light) ); z-index:2000; } 
+      #backTop{ position:fixed;
+bottom:30px; right:30px; width:55px; height:55px; border-radius:50%;
+border:none; background: var(--gold); color:#111; font-size:22px;
+cursor:pointer; opacity:0; pointer-events:none; transition:.3s; z-index:1000; }
+#backTop.show{ opacity:1; pointer-events:auto; } 
+      .mobile-menu{ display:none;
+position:absolute; top:80px; left:0; width:100%; background: rgba(5,5,5,.95);
+padding:30px; text-align:center; } 
+      .mobile-menu a{ display:block; padding:15px;
+color:white; } 
+      .mobile-menu.active{ display:block; } #installAppBtn{
+display:none; padding-left: 20px; }
+    </style>
+    
+  </head>
+  <body>
+    <div id="progressBar"></div>
+
+    <!-- =====================================================
+     HEADER PREMIUM
+     FIDELIDADE.NET.BR V2.01.2
+===================================================== -->
+    <header class="header" id="header">
+      <div class="container header-container">
+        <!-- LOGO -->
+        <a href="#" class="brand">
+          <img class="logo-dinamica alt-dinamico" src="#" alt="" />
+        </a>
+
+        <!-- MENU DESKTOP -->
+
+        <nav class="nav">
+          <a href="#funciona"> Como Funciona </a>
+
+          <a href="#premios"> Prêmios </a>
+
+          <a href="#niveis"> Níveis </a>
+
+          <a href="#faq"> FAQ </a>
+        </nav>
+
+        <!-- AÇÕES -->
+
+        <div class="header-actions">
+          <a href="#" data-rota="URL_AppCliente" class="btn btn-outline">
+            <i class="bi bi-person-circle"></i>
+            Área do Cliente
+          </a>
+
+          <a href="javascript:abrirModalCadastro();" class="btn btn-primary">
+            <i class="bi bi-stars"></i>
+            Quero Participar
+          </a>
+        </div>
+
+        <!-- BOTÃO MOBILE -->
+
+        <a href="#" class="sf-btn sf-btn-gold" id="installAppBtn"
+          ><i class="bi bi-phone"></i>Instalar Aplicativo</a
+        >
+        <button class="menu-toggle" id="menuToggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#funciona"> Como Funciona </a>
+
+          <a href="#premios"> Prêmios </a>
+
+          <a href="#niveis"> Níveis </a>
+
+          <a href="#faq"> FAQ </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- =====================================================
+     HERO PREMIUM FIDELIDADE.NET.BR V2.01.3
+===================================================== -->
+
+    <section class="hero">
+      <div class="container hero-container">
+        <!-- TEXTO -->
+
+        <div class="hero-content">
+          <span class="badge badge-gold">
+            PROGRAMA DE BENEFÍCIOS &nbsp;<span
+              class="nome-dinamico"
+              style="text-transform: uppercase"
+            ></span>
+          </span>
+
+          <h1>Cada compra aproxima você do seu próximo prêmio.</h1>
+
+          <p>
+            Acumule <span class="nome-moeda-dinamico"></span>, evolua seu nível
+            e transforme suas compras em experiências, benefícios e recompensas
+            exclusivas.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="javascript:abrirModalCadastro();" class="btn btn-primary">
+              <i class="bi bi-stars"></i>
+
+              Quero Participar
+            </a>
+
+            <a
+              href="#" data-rota="URL_AppCliente"
+              class="btn btn-outline"
+            >
+              <i class="bi bi-person-circle"></i>
+
+              Área do Cliente
+            </a>
+          </div>
+        </div>
+
+        <!-- MOCKUP APP -->
+
+        <div class="hero-device">
+          <div class="phone">
+            <div class="phone-camera"></div>
+
+            <div class="phone-screen">
+              <div class="app-header"><span class="nome-dinamico"></span></div>
+              <div class="coin-card">
+                <span> Saldo Atual </span>
+                <strong> 125.350 </strong>
+
+                <small>
+                  <span class="moeda-dinamica"></span>
+                </small>
+              </div>
+
+              <div class="level-card">
+                <i class="bi bi-gem"></i>
+
+                <div>
+                  VIP
+
+                  <br />
+
+                  Cliente Especial
+                </div>
+              </div>
+
+              <div class="app-options">
+                <div>
+                  <i class="bi bi-gift"></i>
+
+                  Prêmios
+                </div>
+
+                <div>
+                  <i class="bi bi-trophy"></i>
+
+                  Ranking
+                </div>
+
+                <div>
+                  <i class="bi bi-wallet2"></i>
+
+                  Cashback
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     COMO FUNCIONA FIDELIDADE.NET.BR V2.02
+===================================================== -->
+
+    <section class="section how-section" id="funciona">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="badge badge-gold"> COMO FUNCIONA </span>
+
+          <h2 class="section-title">Transforme suas compras em recompensas.</h2>
+
+          <p class="section-subtitle">
+            Um programa simples, transparente e feito para valorizar você.
+          </p>
+        </div>
+
+        <div class="grid grid-4 steps">
+          <div class="card step-card">
+            <div class="step-icon">
+              <i class="bi bi-bag-check"></i>
+            </div>
+
+            <h3>1. Faça uma compra de qualquer valor</h3>
+
+            <p>
+              Basta informar seu CPF no momento da compra para acumular
+              <span class="nome-moeda-dinamico"></span> automaticamente.
+            </p>
+          </div>
+
+          <div class="card step-card reveal">
+            <div class="step-icon">
+              <i class="bi bi-coin"></i>
+            </div>
+
+            <h3>2. Acumule <span class="moeda-dinamica"></span></h3>
+
+            <p>
+              Cada compra realizada gera pontos (<span
+                class="nome-moeda-dinamico"
+              ></span
+              >) automaticamente em sua conta, que podem ser trocadas por
+              prêmios, descontos e benefícios exclusivos.
+            </p>
+          </div>
+
+          <div class="card step-card reveal">
+            <div class="step-icon">
+              <i class="bi bi-bar-chart-line"></i>
+            </div>
+
+            <h3>3. Evolua seu nível</h3>
+
+            <p>Quanto maior sua participação, maiores seus benefícios.</p>
+          </div>
+
+          <div class="card step-card reveal">
+            <div class="step-icon">
+              <i class="bi bi-gift"></i>
+            </div>
+
+            <h3>4. Resgate prêmios</h3>
+
+            <p>Troque seus pontos por vantagens exclusivas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     MOEDA
+===================================================== -->
+    <br />
+
+    <section class="section coin-section">
+      <div class="container">
+        <div class="grid grid-2 coin-layout">
+          <div class="coin-visual">
+            <div class="coin-fidelidade">
+              <span class="letra-moeda-dinamica"></span>
+            </div>
+          </div>
+
+          <div class="coin-content">
+            <span class="badge badge-gold"> MOEDA OFICIAL </span>
+
+            <h2 class="section-title">
+              Conheça a <span class="nome-moeda-singular"></span>
+            </h2>
+
+            <p class="section-subtitle">
+              Sua moeda dentro do programa de fidelidade
+              <span class="primeiro-nome-dinamico"></span>.
+            </p>
+
+            <p>
+              A cada compra realizada, você acumula
+              <span class="nome-moeda-dinamico"></span> (<span
+                class="moeda-dinamica"
+              ></span
+              >). Quanto mais participa, mais benefícios conquista.
+            </p>
+
+            <div class="coin-highlight">
+              <i class="bi bi-stars"></i>
+              <strong>
+                1 centavo comprado = 1 <span class="nome-moeda-singular"></span>
+              </strong>
+            </div>
+
+            <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
+              Quero começar a acumular
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     VITRINE PREMIUM DE PRÊMIOS
+     FIDELIDADE.NET.BR V2.03
+===================================================== -->
+    <br />
+
+    <section class="section prizes-section" id="premios">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="badge badge-gold"> RECOMPENSAS </span>
+
+          <h2 class="section-title">Escolha sua próxima conquista.</h2>
+
+          <p class="section-subtitle">
+            Acumule <span class="nome-moeda-dinamico"></span> e troque por
+            benefícios exclusivos.
+          </p>
+        </div>
+
+        <div class="grid grid-3 prizes-grid">
+          <!-- PRÊMIO 01 -->
+
+          <div class="prize-card card-premium reveal">
+            <div class="prize-image">
+              <img
+                src="https://www.dropbox.com/scl/fi/gwkovkafyewytiy6tdykf/Cliente_Premiado_Cashback50.png?rlkey=wmhpnlml59o8jaajwdta3ejl3&raw=1"
+                alt="CASHBACK"
+              />
+            </div>
+
+            <div class="prize-content">
+              <span class="badge badge-gold">
+                100.000&nbsp;<span class="moeda-dinamica"></span>
+              </span>
+
+              <h3>CASHBACK</h3>
+
+              <p>Escolha o valor disponível conforme a campanha vigente.</p>
+
+              <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
+                <i class="bi bi-stars"></i>
+
+                Quero conquistar
+              </a>
+            </div>
+          </div>
+
+          <!-- PRÊMIO 02 -->
+
+          <div class="prize-card card-premium reveal">
+            <div class="prize-image">
+              <img
+                src="https://www.dropbox.com/scl/fi/fp6ingezom0ntnsyi6zz6/Vale-Cinema_DoseDupla.jfif?rlkey=5l0mb84xmndbpvmsshg7cznmr&raw=1"
+                alt="Vale Cinema"
+              />
+            </div>
+
+            <div class="prize-content">
+              <span class="badge badge-gold">
+                325.000&nbsp;<span class="moeda-dinamica">" " </span>
+              </span>
+
+              <h3>Vale Cinema</h3>
+
+              <p>Momentos especiais também fazem parte das recompensas.</p>
+
+              <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
+                <i class="bi bi-stars"></i>
+                Quero conquistar
+              </a>
+            </div>
+          </div>
+
+          <!-- PRÊMIO 03 -->
+
+          <div class="prize-card card-premium reveal">
+            <div class="prize-image">
+              <img
+                src="https://www.dropbox.com/scl/fi/x50epkz6f1x2oy0ylh2v9/Chek-inPremiado_01.jfif?rlkey=wjjkccavftfz4sj7y0hikwt51&raw=1"
+                alt="Check-in Premiado"
+              />
+            </div>
+            <div class="prize-content">
+              <span class="badge badge-gold"> 1º LUGAR NO RANKING ANUAL </span>
+
+              <h3>Check-in Premiado</h3>
+
+              <p>
+                Experiências únicas para clientes que participam do programa.
+              </p>
+
+              <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
+                <i class="bi bi-stars"></i>
+
+                Quero conquistar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     EXPERIÊNCIA DO APLICATIVO
+     FIDELIDADE.NET.BR V2.04
+===================================================== -->
+    <br />
+
+    <section class="section app-section">
+      <div class="container">
+        <div class="grid grid-2 app-layout">
+          <!-- MOCKUP -->
+
+          <div class="app-preview">
+            <div class="app-phone">
+              <div class="app-notch"></div>
+
+              <div class="app-body">
+                <div class="mini-header">
+                  <span class="nome-dinamico"></span>
+                </div>
+
+                <div class="balance-card">
+                  <span> Saldo disponível </span>
+
+                  <strong> 125.350 </strong>
+
+                  <small>
+                    <span class="moeda-dinamica"></span>
+                  </small>
+                </div>
+
+                <div class="customer-level">
+                  <i class="bi bi-gem"></i>
+
+                  <div>
+                    <strong> VIP </strong>
+
+                    <span> Cliente Especial </span>
+                  </div>
+                </div>
+
+                <div class="progress-box">
+                  <div class="progress-title">Próximo nível: Diamante</div>
+
+                  <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                  </div>
+
+                  <span> 75% concluído </span>
+                </div>
+
+                <div class="mini-actions">
+                  <div>
+                    <i class="bi bi-gift"></i>
+
+                    Prêmios
+                  </div>
+
+                  <div>
+                    <i class="bi bi-trophy"></i>
+
+                    Ranking
+                  </div>
+
+                  <div>
+                    <i class="bi bi-clock-history"></i>
+
+                    Histórico
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TEXTO -->
+
+          <div class="app-content">
+            <span class="badge badge-gold"> SEU APLICATIVO </span>
+
+            <h2 class="section-title">Tenha o controle da sua evolução.</h2>
+
+            <p class="section-subtitle">
+              Acompanhe seus pontos, seu nível e suas conquistas diretamente
+              pelo programa.
+            </p>
+
+            <ul class="benefit-list">
+              <li>
+                <i class="bi bi-check-circle"></i>
+
+                Saldo atualizado de <span class="nome-moeda-dinamico"></span>
+              </li>
+
+              <li>
+                <i class="bi bi-check-circle"></i>
+
+                Histórico de compras
+              </li>
+
+              <li>
+                <i class="bi bi-check-circle"></i>
+
+                Ranking de clientes
+              </li>
+
+              <li>
+                <i class="bi bi-check-circle"></i>
+
+                Catálogo de prêmios
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     NÍVEIS DE FIDELIDADE
+===================================================== -->
+    <br />
+
+    <section class="section levels-section" id="niveis">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="badge badge-gold"> NÍVEIS </span>
+
+          <h2 class="section-title">Evolua. Conquiste. Seja reconhecido.</h2>
+
+          <p class="section-subtitle">
+            Quanto maior seu relacionamento com conosco, maiores serão seus
+            benefícios.
+          </p>
+        </div>
+
+        <div class="grid grid-4 levels-grid">
+          <div class="level-card start reveal">
+            <span> 🚀 </span>
+
+            <p>
+              START<br />
+              Primeiro nível do programa, basta apenas fazer o cadastro!
+            </p>
+          </div>
+
+          <div class="level-card plus reveal">
+            <span> ✨ </span>
+
+            <p>
+              PLUS <br />
+              Vantagens e benefícios Exclusivos - Aqui começa sua jornada!
+            </p>
+          </div>
+
+          <div class="level-card vip reveal">
+            <span> 🌟 </span>
+
+            <p>
+              VIP <br />
+             Experiências únicas e vantagens exclusivas. Um passo além na sua jornada.
+            </p>
+          </div>
+
+          <div class="level-card diamond reveal">
+            <span> 💎 </span>
+
+            <p>
+              DIAMANTE<br />
+              O nível máximo de reconhecimento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     RANKING DE CLIENTES
+     FIDELIDADE.NET.BR V2.05
+===================================================== -->
+
+    <br />
+    <section class="section ranking-section">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="badge badge-gold"> RANKING </span>
+
+          <h2 class="section-title">
+            Os clientes que mais evoluem são reconhecidos.
+          </h2>
+
+          <p class="section-subtitle">
+            A cada período, os maiores participantes conquistam destaque e
+            premiações especiais.
+          </p>
+        </div>
+
+        <div class="ranking-board">
+          <!-- PRIMEIRO LUGAR -->
+
+          <div class="ranking-item gold reveal">
+            <div class="medal">🥇</div>
+
+            <div class="rank-info">
+              <strong> João Silva </strong>
+
+              <span> Cliente Diamante </span>
+            </div>
+
+            <div class="rank-score">
+              250.000 <span class="moeda-dinamica"></span>
+            </div>
+          </div>
+
+          <!-- SEGUNDO -->
+
+          <div class="ranking-item silver reveal">
+            <div class="medal">🥈</div>
+
+            <div class="rank-info">
+              <strong> Maria Oliveira </strong>
+
+              <span> Cliente VIP </span>
+            </div>
+
+            <div class="rank-score">
+              180.000 <span class="moeda-dinamica"></span>
+            </div>
+          </div>
+
+          <!-- TERCEIRO -->
+
+          <div class="ranking-item bronze reveal">
+            <div class="medal">🥉</div>
+
+            <div class="rank-info">
+              <strong> Carlos Santos </strong>
+
+              <span> Cliente Plus </span>
+            </div>
+
+            <div class="rank-score">
+              120.000 <span class="moeda-dinamica"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br />
+
+    <!-- =====================================================
+     PLAYGROUND FIDELIDADE V2.08
+===================================================== -->
+
+    <section class="section playground-section">
+      <div class="container">
+        <div class="playground-box">
+          <!-- TÍTULO -->
+
+          <div class="playground-heading">
+            <span class="badge badge-gold">
+              PLAYGROUND &nbsp;<span
+                class="primeiro-nome-dinamico"
+                style="text-transform: uppercase"
+              ></span>
+            </span>
+
+            <h2>
+              Seus <span class="nome-moeda-dinamico"></span>
+              também viram diversão.
+            </h2>
+
+            <p>
+              Além de acumular benefícios, você pode utilizar seus
+              <span class="nome-moeda-dinamico"></span>
+              para participar de experiências interativas e concorrer a prêmios.
+            </p>
+          </div>
+
+          <!-- JOGOS -->
+
+          <div class="playground-games">
+            <!-- ROLETA -->
+
+            <div class="playground-game reveal">
+              <div class="playground-icon">
+                <i class="bi bi-disc"></i>
+              </div>
+
+              <h3>Roleta de Prêmios</h3>
+
+              <p>
+                Gire a roleta e concorra a prêmios instantâneos, bônus em
+                <span class="nome-moeda-dinamico"></span> e vouchers de
+                desconto.
+              </p>
+            </div>
+
+            <!-- MÁQUINA -->
+
+            <div class="playground-game reveal">
+              <div class="playground-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  fill="currentColor"
+                  class="bi bi-tux"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.996 4.497c.104-.076.1-.168.186-.158s.022.102-.098.207c-.12.104-.308.243-.46.323-.291.152-.631.336-.993.336s-.647-.167-.853-.33c-.102-.082-.186-.162-.248-.221-.11-.086-.096-.207-.052-.204.075.01.087.109.134.153.064.06.144.137.241.214.195.154.454.304.778.304s.702-.19.932-.32c.13-.073.297-.204.433-.304M7.34 3.781c.055-.02.123-.031.174-.003.011.006.024.021.02.034-.012.038-.074.032-.11.05-.032.017-.057.052-.093.054-.034 0-.086-.012-.09-.046-.007-.044.058-.072.1-.089m.581-.003c.05-.028.119-.018.173.003.041.017.106.045.1.09-.004.033-.057.046-.09.045-.036-.002-.062-.037-.093-.053-.036-.019-.098-.013-.11-.051-.004-.013.008-.028.02-.034"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M8.446.019c2.521.003 2.38 2.66 2.364 4.093-.01.939.509 1.574 1.04 2.244.474.56 1.095 1.38 1.45 2.32.29.765.402 1.613.115 2.465a.8.8 0 0 1 .254.152l.001.002c.207.175.271.447.329.698.058.252.112.488.224.615.344.382.494.667.48.922-.015.254-.203.43-.435.57-.465.28-1.164.491-1.586 1.002-.443.527-.99.83-1.505.871a1.25 1.25 0 0 1-1.256-.716v-.001a1 1 0 0 1-.078-.21c-.67.038-1.252-.165-1.718-.128-.687.038-1.116.204-1.506.206-.151.331-.445.547-.808.63-.5.114-1.126 0-1.743-.324-.577-.306-1.31-.278-1.85-.39-.27-.057-.51-.157-.626-.384-.116-.226-.095-.538.07-.988.051-.16.012-.398-.026-.648a2.5 2.5 0 0 1-.037-.369c0-.133.022-.265.087-.386v-.002c.14-.266.368-.377.577-.451s.397-.125.53-.258c.143-.15.27-.374.443-.56q.036-.037.073-.07c-.081-.538.007-1.105.192-1.662.393-1.18 1.223-2.314 1.811-3.014.502-.713.65-1.287.701-2.016.042-.997-.705-3.974 2.112-4.2q.168-.015.321-.013m2.596 10.866-.03.016c-.223.121-.348.337-.427.656-.08.32-.107.733-.13 1.206v.001c-.023.37-.192.824-.31 1.267s-.176.862-.036 1.128v.002c.226.452.608.636 1.051.601s.947-.304 1.36-.795c.474-.576 1.218-.796 1.638-1.05.21-.126.324-.242.333-.4.009-.157-.097-.403-.425-.767-.17-.192-.217-.462-.274-.71-.056-.247-.122-.468-.26-.585l-.001-.001c-.18-.157-.356-.17-.565-.164q-.069.001-.14.005c-.239.275-.805.612-1.197.508-.359-.09-.562-.508-.587-.918m-7.204.03H3.83c-.189.002-.314.09-.44.225-.149.158-.276.382-.445.56v.002h-.002c-.183.184-.414.239-.61.31-.195.069-.353.143-.46.35v.002c-.085.155-.066.378-.029.624.038.245.096.507.018.746v.002l-.001.002c-.157.427-.155.678-.082.822.074.143.235.22.48.272.493.103 1.26.069 1.906.41.583.305 1.168.404 1.598.305.431-.098.712-.369.75-.867v-.002c.029-.292-.195-.673-.485-1.052-.29-.38-.633-.752-.795-1.09v-.002l-.61-1.11c-.21-.286-.43-.462-.68-.5a1 1 0 0 0-.106-.008M9.584 4.85c-.14.2-.386.37-.695.467-.147.048-.302.17-.495.28a1.3 1.3 0 0 1-.74.19.97.97 0 0 1-.582-.227c-.14-.113-.25-.237-.394-.322a3 3 0 0 1-.192-.126c-.063 1.179-.85 2.658-1.226 3.511a5.4 5.4 0 0 0-.43 1.917c-.68-.906-.184-2.066.081-2.568.297-.55.343-.701.27-.649-.266.436-.685 1.13-.848 1.844-.085.372-.1.749.01 1.097.11.349.345.67.766.931.573.351.963.703 1.193 1.015s.302.584.23.777a.4.4 0 0 1-.212.22.7.7 0 0 1-.307.056l.184.235c.094.124.186.249.266.375 1.179.805 2.567.496 3.568-.218.1-.342.197-.664.212-.903.024-.474.05-.896.136-1.245s.244-.634.53-.791a1 1 0 0 1 .138-.061q.005-.045.013-.087c.082-.546.569-.572 1.18-.303.588.266.81.499.71.814h.13c.122-.398-.133-.69-.822-1.025l-.137-.06a2.35 2.35 0 0 0-.012-1.113c-.188-.79-.704-1.49-1.098-1.838-.072-.003-.065.06.081.203.363.333 1.156 1.532.727 2.644a1.2 1.2 0 0 0-.342-.043c-.164-.907-.543-1.66-.735-2.014-.359-.668-.918-2.036-1.158-2.983M7.72 3.503a1 1 0 0 0-.312.053c-.268.093-.447.286-.559.391-.022.021-.05.04-.119.091s-.172.126-.321.238q-.198.151-.13.38c.046.15.192.325.459.476.166.098.28.23.41.334a1 1 0 0 0 .215.133.9.9 0 0 0 .298.066c.282.017.49-.068.673-.173s.34-.233.518-.29c.365-.115.627-.345.709-.564a.37.37 0 0 0-.01-.309c-.048-.096-.148-.187-.318-.257h-.001c-.354-.151-.507-.162-.705-.29-.321-.207-.587-.28-.807-.279m-.89-1.122h-.025a.4.4 0 0 0-.278.135.76.76 0 0 0-.191.334 1.2 1.2 0 0 0-.051.445v.001c.01.162.041.299.102.436.05.116.109.204.183.274l.089-.065.117-.09-.023-.018a.4.4 0 0 1-.11-.161.7.7 0 0 1-.054-.22v-.01a.7.7 0 0 1 .014-.234.4.4 0 0 1 .08-.179q.056-.069.126-.073h.013a.18.18 0 0 1 .123.05c.045.04.08.09.11.162a.7.7 0 0 1 .054.22v.01a.7.7 0 0 1-.002.17 1.1 1.1 0 0 1 .317-.143 1.3 1.3 0 0 0 .002-.194V3.23a1.2 1.2 0 0 0-.102-.437.8.8 0 0 0-.227-.31.4.4 0 0 0-.268-.102m1.95-.155a.63.63 0 0 0-.394.14.9.9 0 0 0-.287.376 1.2 1.2 0 0 0-.1.51v.015q0 .079.01.152c.114.027.278.074.406.138a1 1 0 0 1-.011-.172.8.8 0 0 1 .058-.278.5.5 0 0 1 .139-.2.26.26 0 0 1 .182-.069.26.26 0 0 1 .178.081c.055.054.094.12.124.21.029.086.042.17.04.27l-.002.012a.8.8 0 0 1-.057.277c-.024.059-.089.106-.122.145.046.016.09.03.146.052a5 5 0 0 1 .248.102 1.2 1.2 0 0 0 .244-.763 1.2 1.2 0 0 0-.11-.495.9.9 0 0 0-.294-.37.64.64 0 0 0-.39-.133z"
+                  />
+                </svg>
+              </div>
+
+              <h3>Máquina de Bichinhos</h3>
+
+              <p>Tente capturar brindes e cupons especiais de cashback.</p>
+            </div>
+
+            <!-- PESCARIA -->
+
+            <div class="playground-game reveal">
+              <div class="playground-icon">
+                <i class="bi bi-water"></i>
+              </div>
+
+              <h3>Pescaria Premiada</h3>
+
+              <p>
+                Participe das campanhas sazonais e concorra a recompensas
+                exclusivas em períodos especiais.
+              </p>
+            </div>
+          </div>
+
+          <!-- CIFRAO_MOEDA -->
+
+          <div class="playground-sxc">
+            <strong>
+              🎟️ Seus
+              <span class="nome-moeda-dinamico" style="all: unset;"></span>
+              podem dar direito a fichas para jogar no Playground.
+            </strong>
+
+            <br />
+
+            <span>
+              As regras, custos em <span class="moeda-dinamica"></span> e
+              limites de jogadas são informados no próprio ambiente dos jogos.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     PROGRAMA DE INDICAÇÃO
+===================================================== -->
+
+    <br />
+    <section class="section referral-section">
+      <div class="container">
+        <div class="referral-card">
+          <div class="referral-content">
+            <span class="badge badge-gold"> INDIQUE E GANHE </span>
+
+            <h2>
+              Compartilhe a <span class="primeiro-nome-dinamico"></span>.<br />
+              Ganhe junto.
+            </h2>
+
+            <p>
+              Indique novos clientes para o programa e receba bônus conforme as
+              regras vigentes sobre as compras realizadas pelos indicados.
+            </p>
+
+            <a
+              href="javascript:void(0)"
+              onclick="compartilharWhatsApp()"
+              class="btn btn-gold"
+            >
+              <i class="bi bi-whatsapp"></i>
+              Compartilhar no WhatsApp
+              <i class="bi bi-people"></i>
+            </a>
+
+            <br />
+          </div>
+
+          <div class="referral-icon">
+            <i class="bi bi-share-fill"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     FAQ FIDELIDADE.NET.BR V2.06
+===================================================== -->
+
+    <br />
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-heading text-center">
+          <span class="badge badge-gold"> DÚVIDAS </span>
+          <h2 class="section-title">Perguntas frequentes</h2>
+
+          <p class="section-subtitle">
+            Tudo o que você precisa saber sobre o
+            <span class="nome-dinamico"></span>
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              Como faço para participar?
+
+              <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Basta realizar seu cadastro no aplicativo
+                <span class="nome-dinamico"></span>. Após o cadastro você inicia
+                no nível Start e já pode participar do programa.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Como ganho Pontos?
+              <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                A cada compra realizada n<span class="tratamento-minusculo"></span> 
+                <span class="primeiro-nome-dinamico"></span>, o valor é
+                convertido em <span class="nome-moeda-dinamico"></span> conforme
+                as regras vigentes do programa.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Meus pontos possuem validade?
+              <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Sim. Os <span class="nome-moeda-dinamico"></span> correspondem
+                ao ciclo anual do programa e podem ser utilizados conforme as
+                regras estabelecidas.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Posso trocar pontos por dinheiro?
+
+              <i class="bi bi-chevron-down"></i>
+            </button>
+
+            <div class="faq-answer">
+              <p>
+                Não. O <b><span class="nome-moeda-singular"></span></b> é uma
+                moeda fictícia exclusiva do programa e podem ser utilizados
+                apenas para benefícios, descontos e resgates.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Como resgato meus prêmios?
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Acesse seu aplicativo, consulte seu saldo e veja os benefícios
+                disponíveis conforme sua pontuação.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     CTA FINAL
+===================================================== -->
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <span class="badge badge-gold"> COMECE AGORA </span>
+
+          <h2>
+            Faça parte do
+            <span class="nome-dinamico"></span>.
+          </h2>
+
+          <p>
+            Cadastre-se gratuitamente, acumule
+            <span class="nome-moeda-dinamico"></span> e conquiste benefícios
+            exclusivos.
+          </p>
+
+          <div class="cta-buttons">
+            <a href="javascript:abrirModalCadastro();" class="btn btn-primary">
+              <i class="bi bi-stars"></i>
+              Quero Participar
+            </a>
+
+            <a
+              href="#" data-rota="URL_AppCliente" 
+              class="btn btn-outline"
+            >
+              
+              
+              <i class="bi bi-person"></i>
+              Já sou cliente
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.querySelectorAll(".faq-question")
+      .forEach(button=>{
+      button.addEventListener("click",()=>{
+      const item = button.parentElement;
+      item.classList.toggle("active");
+    });
+
+      });
+    </script>
+
+    <script>
+
+
+      /* HEADER SCROLL */
+
+
+      const header = document.getElementById("header");
+
+
+      window.addEventListener("scroll",()=>{
+
+
+      if(window.scrollY > 50){
+
+
+      header.classList.add("scrolled");
+
+
+      }
+
+      else{
+
+
+      header.classList.remove("scrolled");
+
+
+      }
+
+
+      });
+
+
+
+
+
+      /* MENU MOBILE */
+
+
+      const menuToggle = document.getElementById("menuToggle");
+
+
+      menuToggle.addEventListener("click",()=>{
+
+
+      document
+      .getElementById("mobileMenu")
+      .classList.toggle("active");
+
+
+      });
+    </script>
+
+    <script>
+
+      document.getElementById("year").textContent =
+      new Date().getFullYear();
+    </script>
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <img src="" class="logo-dinamica" />
+          <p>
+            Programa de fidelização e relacionamento
+            <span class="nome-dinamico"></span>.
+          </p>
+        </div>
+
+        <div class="footer-copy">
+          <span class="nome-dinamico"></span> - Programa de fidelização de
+          Clientes -
+          <span id="year"></span>
+
+          <br />
+
+          Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+    
+  <!--  FIDELIDADE.NET.BR IDENTIDADE VISUAL DINÂMINCA 5.2-->
+<script>
+// =========================================================================
+    // FIDELIDADE.NET.BR IDENTIDADE VISUAL DINÂMINCA 5.2
+    // A ÚNICA URL QUE FICA FIXA (A Ponte de Conexão com o Banco de Dados) - ADICIONAR SOMENTE SE NÃO ESTIVER DISPONÍVEL NA PÁGINA
+    const API_URL = "URL_APPS_SCRIPT_AQUI"; //  COLOQUE SUA URL AQUI
+// ==========================================
+// FUNÇÕES DE IDENTIDADE VISUAL
+
+// ==========================================
+
+// FUNÇÃO QUE PREENCHE O FORMULÁRIO (Aba Configurações)
+async function carregarIdentidadeVisual() {
+    try {
+        const res = await (await fetch(API_URL, {
+            method: 'POST',
+            body: JSON.stringify({ action: 'buscar_identidade' })
+        })).json();
+
+        if (res.status === 'success') {
+            const iden = res.identidade;
+            
+            // Preenchendo campos de texto
+            if (document.getElementById('idTratamento')) document.getElementById('idTratamento').value = iden.Tratamento_Genero || '';
+            if (document.getElementById('idLogo')) document.getElementById('idLogo').value = iden.Logo_URL || '';
+            if (document.getElementById('idNome')) document.getElementById('idNome').value = iden.Nome_Programa || '';
+            if (document.getElementById('idMoeda')) document.getElementById('idMoeda').value = iden.Nome_Moeda || '';
+            if (document.getElementById('idCifrao')) document.getElementById('idCifrao').value = iden.Cifrao_Moeda || '';
+            if (document.getElementById('idTelefone')) document.getElementById('idTelefone').value = iden.Telefone_WPP || '';
+            if (document.getElementById('idApi')) document.getElementById('idApi').value = iden.URL_API || '';
+            if (document.getElementById('idAppCliente')) document.getElementById('idAppCliente').value = iden.URL_AppCliente || '';
+            if (document.getElementById('idAppCadastro')) document.getElementById('idAppCadastro').value = iden.URL_Cadastro || '';
+            if (document.getElementById('idAppPlayground')) document.getElementById('idAppPlayground').value = iden.URL_Playground || '';
+            if (document.getElementById('idAppRoleta')) document.getElementById('idAppRoleta').value = iden.URL_Roleta || '';
+            if (document.getElementById('idAppClaw')) document.getElementById('idAppClaw').value = iden.URL_ClawMachine || '';
+            if (document.getElementById('idAppPescaria')) document.getElementById('idAppPescaria').value = iden.URL_Pescaria || '';
+            
+            // --- INÍCIO DA CORREÇÃO DAS PALETAS ---
+            window.BG_COR1 = iden["BG_COR1"] || "#1a1a1a";
+            window.BG_COR2 = iden["BG_COR2"] || "#550000";
+
+            if (document.getElementById('idBgCor1')) document.getElementById('idBgCor1').value = window.BG_COR1;
+            if (document.getElementById('idBgCor2')) document.getElementById('idBgCor2').value = window.BG_COR2;
+            // --- FIM DA CORREÇÃO DAS PALETAS ---
+        }
+    } catch (e) {
+        console.error("Erro ao carregar Identidade Visual", e);
+    }
+}
+
+// Chame esta função na inicialização do painel ou no botão que abre a aba
+// carregarIdentidadeVisual();
+
+async function salvarIdentidadeVisual() {
+    const btn = event.target;
+    const textoOriginal = btn.innerText;
+    btn.innerText = "Salvando...";
+    btn.disabled = true;
+
+ 
+    const identidadeAtualizada = {
+        Tratamento_Genero: document.getElementById('idTratamento') ? document.getElementById('idTratamento').value : 'a',
+        Logo_URL: document.getElementById('idLogo').value,
+        Nome_Programa: document.getElementById('idNome').value,
+        Nome_Moeda: document.getElementById('idMoeda').value,
+        Cifrao_Moeda: document.getElementById('idCifrao').value,
+        Telefone_WPP: document.getElementById('idTelefone').value,
+        URL_API: document.getElementById('idApi').value,
+        URL_AppCliente: document.getElementById('idAppCliente').value,
+        URL_Cadastro: document.getElementById('idAppCadastro').value,
+        URL_Playground: document.getElementById('idAppPlayground').value,
+        URL_Roleta: document.getElementById('idAppRoleta').value,
+        URL_ClawMachine: document.getElementById('idAppClaw').value,
+        URL_Pescaria: document.getElementById('idAppPescaria').value,
+        // CORES DO BACKGROUND
+        "BG_COR1": document.getElementById('idBgCor1').value,
+        "BG_COR2": document.getElementById('idBgCor2').value
+    };
+
+    try {
+        const res = await (await fetch(API_URL, {
+            method: 'POST',
+            body: JSON.stringify({ action: 'salvar_identidade', identidade: identidadeAtualizada })
+        })).json();
+
+        if (res.status === 'success') {
+            alert("Identidade Visual salva com sucesso!");
+                 
+        sessionStorage.removeItem('identidadeGlobal'); // Limpa o cache antigo para forçar a nova leitura
+        } else {
+            alert("Erro: " + res.message);
+        }
+    } catch (e) {
+        alert("Erro ao conectar com o servidor.");
+    }
+
+    btn.innerText = textoOriginal;
+    btn.disabled = false;
+}
+
+
+    async function carregarEConfigurarIdentidade() {
+        try {
+            const cache = sessionStorage.getItem('identidadeGlobal');
+            if (cache) {
+                aplicarIdentidadeVisual(JSON.parse(cache));
+                return;
+            }
+
+            const res = await (await fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify({ action: 'buscar_identidade' })
+            })).json();
+
+            if (res.status === 'success' && res.identidade) {
+                sessionStorage.setItem('identidadeGlobal', JSON.stringify(res.identidade));
+                aplicarIdentidadeVisual(res.identidade);
+            }
+        } catch (e) {
+            console.error("Erro ao carregar identidade visual:", e);
+        }
+    }
+
+    // ==========================================
+    // FUNÇÃO QUE ESPALHA OS DADOS DO CLIENTE NA TELA
+    // ==========================================
+    window.atualizarDadosClienteDinamicos = function() {
+        let saldo = 0;
+        let nomeCli = "Cliente";
+        let apelidoCli = "Cliente";
+        
+        // Tenta capturar os dados do cliente logado na memória do app
+        if (typeof clienteLogado !== 'undefined' && clienteLogado) {
+            saldo = clienteLogado.saldoSXC !== undefined ? clienteLogado.saldoSXC : (clienteLogado.saldo || 0);
+            nomeCli = clienteLogado.nome || "Cliente";
+            apelidoCli = clienteLogado.apelido || nomeCli.split(' ')[0];
+        } else if (typeof dadosCliente !== 'undefined' && dadosCliente) {
+            saldo = dadosCliente.saldo || 0;
+            nomeCli = dadosCliente.nome || "Cliente";
+            apelidoCli = dadosCliente.apelido || nomeCli.split(' ')[0];
+        }
+
+        // 1. Salva nas Variáveis Globais
+        window.SALDO_CLIENTE = saldo;
+        window.NOME_CLIENTE = nomeCli;
+        window.APELIDO_CLIENTE = apelidoCli;
+
+        // 2. Injeta nas Classes Vazias do HTML
+        document.querySelectorAll('.nome-cliente-dinamico').forEach(el => el.innerText = window.NOME_CLIENTE);
+        document.querySelectorAll('.apelido-cliente-dinamico').forEach(el => el.innerText = window.APELIDO_CLIENTE);
+        document.querySelectorAll('.saldo-dinamico').forEach(el => el.innerText = Number(window.SALDO_CLIENTE).toLocaleString('pt-BR'));
+    };
+
+    function aplicarIdentidadeVisual(iden) {
+        // 1. SALVA AS VARIÁVEIS GLOBAIS DE MARCA
+        window.TRATAMENTO_MIN = (iden.Tratamento_Genero || "a").toLowerCase();
+        window.TRATAMENTO_MAI = window.TRATAMENTO_MIN.toUpperCase();
+        window.LOGO_URL = iden.Logo_URL || "";
+        window.CIFRAO_MOEDA = iden.Cifrao_Moeda || "";
+        window.NOME_PROGRAMA = iden.Nome_Programa || "";
+        window.PRIMEIRO_NOME = iden.Nome_Programa ? iden.Nome_Programa.split(" ")[0] : "";
+        window.NOME_MOEDA = iden.Nome_Moeda || "FidelityCoin(s)";
+        window.NOME_MOEDA_SINGULAR = window.NOME_MOEDA.replace(/\(s\)$/i, '');
+        window.PRIMEIRA_LETRA_CIFRAO = window.CIFRAO_MOEDA.charAt(0);
+       // v.5.0_variável Global do Telefone Oficial 
+       window.TELEFONE_OFICIAL = iden.Telefone_WPP || "";    
+
+      //  VARIÁVEIS DO BOT 
+        window.NOME_BOT = iden.Nome_Bot || "Assistente Virtual";
+        window.AVATAR_BOT = iden.Avatar_Bot || "🤖"; // Puxa o avatar da planilha (Emoji ou Link)
+        window.ROTAS_FIDELITY = iden;
+
+        // 2. APLICA O BACKGROUND (Gradiente Dinâmico)
+        if (iden.BG_COR1 && iden.BG_COR2) {
+            document.body.style.background = `linear-gradient(335deg, ${iden.BG_COR1} 0%, ${iden.BG_COR2} 150%)`;
+            document.body.style.minHeight = "100vh";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundAttachment = "fixed";
+        }
+
+        // 3. ATUALIZA A LOGO E TEXTOS NAS CLASSES VAZIAS
+        if (window.LOGO_URL) {
+            document.querySelectorAll('.logo-dinamica').forEach(logo => {
+                logo.src = window.LOGO_URL;
+                logo.alt = window.NOME_PROGRAMA;
+            });
+        }
+		// v.5.2 Injeta o tratamento de gênero em classes HTML vazias
+        document.querySelectorAll('.tratamento-minusculo').forEach(el => el.innerText = window.TRATAMENTO_MIN);
+        document.querySelectorAll('.tratamento-maiusculo').forEach(el => el.innerText = window.TRATAMENTO_MAI);     
+        document.querySelectorAll('.nome-dinamico').forEach(el => el.innerText = window.NOME_PROGRAMA);
+        document.querySelectorAll('.primeiro-nome-dinamico').forEach(el => el.innerText = window.PRIMEIRO_NOME);
+        document.querySelectorAll('.moeda-dinamica').forEach(el => el.innerText = window.CIFRAO_MOEDA);
+        document.querySelectorAll('.nome-moeda-singular').forEach(el => el.innerText = window.NOME_MOEDA_SINGULAR);
+        document.querySelectorAll('.nome-moeda-dinamico').forEach(el => el.innerText = window.NOME_MOEDA);
+        document.querySelectorAll('.letra-moeda-dinamica').forEach(el => el.innerText = window.PRIMEIRA_LETRA_CIFRAO);
+        // v.5.0-  Injeta o número de celular em classes HTML vazias 
+        document.querySelectorAll('.telefone-dinamico').forEach(el => el.innerText = window.TELEFONE_OFICIAL); 
+        
+        // Aplica o Nome do Bot
+        document.querySelectorAll('.nome-bot-dinamico').forEach(el => el.innerText = window.NOME_BOT);
+		//  Dispara a sua função do cabeçalho do FAQ!
+        if (typeof aplicarIdentidadeBotFaq === "function") {
+            aplicarIdentidadeBotFaq(window.NOME_BOT, window.AVATAR_BOT);
+        }
+      
+        // 4. ATUALIZA OS DADOS DO CLIENTE
+        window.atualizarDadosClienteDinamicos();
+
+        // 5. INJEÇÃO AUTOMÁTICA DE URLs NOS LINKS (Tags <a>)
+        document.querySelectorAll('[data-rota]').forEach(link => {
+            const rotaAlvo = link.getAttribute('data-rota');
+            if (window.ROTAS_FIDELITY[rotaAlvo]) {
+                link.href = window.ROTAS_FIDELITY[rotaAlvo];
+            }
+        });
+        document.querySelectorAll('.alt-dinamico').forEach(img => img.alt = window.NOME_PROGRAMA);
+      
+      	 // 6. BACKGROUNDS DINAMICOS
+
+              // Injeta a cor de fundo primária nos elementos com a classe bg-dinamico
+        document.querySelectorAll('.bg-dinamico').forEach(el => {
+            el.style.background = window.BG_COR1; 
+        });
+
+    	    // Injeta o gradiente completo nos elementos com a classe bg-dinamico
+        document.querySelectorAll('.bg-dinamico').forEach(el => {
+            el.style.background = `linear-gradient(335deg, ${window.BG_COR1} 0%, ${window.BG_COR2} 150%)`;
+        });
+      
+      // Atualiza as variáveis do CSS :root com as cores do banco de dados
+          document.documentElement.style.setProperty('--bg-cor1', iden.BG_COR1 || '#1a1a1a');
+          document.documentElement.style.setProperty('--bg-cor2', iden.BG_COR2 || '#550000');
+      
+      // ==========================================
+        // MOTOR UNIVERSAL DE PLACEHOLDERS DINÂMICOS
+        // ==========================================
+        document.querySelectorAll('[data-placeholder]').forEach(el => {
+            // 1. Lê a frase curinga original que você escreveu no HTML
+            let texto = el.getAttribute('data-placeholder');
+          
+          	// NOVOS Curingas de Tratamento (v.5.2)
+            texto = texto.replace(/\[TRATAMENTO_MINUSCULO\]/gi, window.TRATAMENTO_MIN || 'a');
+            texto = texto.replace(/\[TRATAMENTO_MAIUSCULO\]/gi, window.TRATAMENTO_MAI || 'A');
+            
+            // 2. Substitui as tags pelas Variáveis Globais reais
+            texto = texto.replace(/\[NOME_PROGRAMA\]/gi, window.NOME_PROGRAMA || '');
+            texto = texto.replace(/\[PRIMEIRO_NOME\]/gi, window.PRIMEIRO_NOME || '');
+            texto = texto.replace(/\[MOEDA\]/gi, window.CIFRAO_MOEDA || '');
+            texto = texto.replace(/\[NOME_MOEDA_SINGULAR\]/gi, window.NOME_MOEDA_SINGULAR || '');
+            texto = texto.replace(/\[NOME_MOEDA\]/gi, window.NOME_MOEDA || '');          
+            texto = texto.replace(/\[NOME_BOT\]/gi, window.NOME_BOT || 'Assistente');
+            // v.5.0 - Adiciona suporte ao placeholder do telefone! 
+            texto = texto.replace(/\[TELEFONE_OFICIAL\]/gi, window.TELEFONE_OFICIAL || '');
+            
+            // 3. Injeta o texto final e perfeito no placeholder do navegador!
+            el.placeholder = texto;
+        });
+      
+        // 6. ATUALIZA O TÍTULO DA ABA E META DESCRIPTION
+        document.title = window.NOME_PROGRAMA;
+        const metaDesc = document.getElementById('metaDescription');
+        if (metaDesc && window.NOME_PROGRAMA) {
+            metaDesc.setAttribute("content", `${window.NOME_PROGRAMA} - Escolha seu tipo de acesso.`);
+        }
+    }
+
+    // ==========================================
+    // FUNÇÃO UNIVERSAL DE NAVEGAÇÃO
+    // ==========================================
+    function irParaRota(rotaAlvo) {
+        if (window.ROTAS_FIDELITY && window.ROTAS_FIDELITY[rotaAlvo]) {
+            window.location.href = window.ROTAS_FIDELITY[rotaAlvo];
+        } else {
+            alert("Carregando o link de destino, tente novamente em 1 segundo...");
+        }
+    }
+
+    // Dispara a mágica assim que a página é lida
+    document.addEventListener("DOMContentLoaded", carregarEConfigurarIdentidade);
+
+   // Transforma Telefone (por exemplo: 5581999999999 fica: (81) 9 9999-9999)
+   // Para usar a função abaixo, chame ela quando necessário usando: aplicarTelefoneDinamico();
+function aplicarTelefoneDinamico() {
+    // 1. Pega o valor bruto da variável global e limpa
+    let telBruto = String(window.TELEFONE_OFICIAL || '');
+    let numCru = telBruto.replace(/\D/g, '');
+    let telFormatado = telBruto;
+
+    // 2. Aplica a máscara inteligente (13 dígitos com DDI 55 ou 11 dígitos padrão)
+    if (numCru.length === 13 && numCru.startsWith('55')) {
+        telFormatado = `(${numCru.substring(2, 4)}) ${numCru.substring(4, 5)} ${numCru.substring(5, 9)}-${numCru.substring(9, 13)}`;
+    } else if (numCru.length === 11) {
+        telFormatado = `(${numCru.substring(0, 2)}) ${numCru.substring(2, 3)} ${numCru.substring(3, 7)}-${numCru.substring(7, 11)}`;
+    }
+
+    // 3. Varre a página inteira e preenche todas as tags com a classe .telefone-dinamico
+    document.querySelectorAll('.telefone-dinamico').forEach(el => {
+        el.innerText = telFormatado;
+    });
+}
+</script>
+
+    <script>
+      const reveals = document.querySelectorAll(
+      ".reveal, .reveal-left, .reveal-right"
+      );
+
+      function revealOnScroll(){
+      reveals.forEach(element=>{
+
+      const windowHeight =
+      window.innerHeight;
+
+      const elementTop =
+      element.getBoundingClientRect().top;
+      if(elementTop < windowHeight - 100){
+      element.classList.add("active");
+
+      }
+   });
+      }
+
+      window.addEventListener(
+      "scroll",
+      revealOnScroll
+      );
+
+      revealOnScroll();
+    </script>
+    <script>
+
+
+      window.addEventListener(
+      "scroll",
+      ()=>{
+
+
+      let scrollTop =
+      document.documentElement.scrollTop;
+
+
+      let height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+
+      let progress =
+      (scrollTop / height) * 100;
+
+
+
+      document.getElementById(
+      "progressBar"
+      ).style.width =
+      progress + "%";
+
+
+      });
+    </script>
+
+    <button id="backTop">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+    <script>
+      const backTop =
+      document.getElementById("backTop");
+      window.addEventListener(
+      "scroll",
+      ()=>{
+      if(window.scrollY > 500){
+      backTop.classList.add("show");
+      }
+
+      else{
+      backTop.classList.remove("show");
+      }
+      });
+
+      backTop.onclick=()=>{
+      window.scrollTo({
+      top:0,
+      behavior:"smooth"
+      });
+      };
+
+      
+    </script>
+
+    <script>
+
+
+      function abrirModalCadastro(){
+
+      const modal =
+      document.getElementById("cadastroModal");
+
+      if(modal){
+      modal.style.display="flex";
+      }
+
+      else{
+      irParaRota('URL_Cadastro');
+      }
+      }
+    </script>
+    
+    <script>
+      let deferredPrompt;
+      const installBtn =
+      document.getElementById("installAppBtn");
+      window.addEventListener(
+      "beforeinstallprompt",
+      (e)=>{
+      e.preventDefault();
+      deferredPrompt=e;
+      if(installBtn){
+     installBtn.style.display="inline-flex";
+      }
+      });
+      installBtn.addEventListener(
+      "click",
+      async()=>{
+      if(!deferredPrompt){
+      return;
+      }
+
+      deferredPrompt.prompt();
+      const result =
+      await deferredPrompt.userChoice;
+      if(result.outcome==="accepted"){
+      console.log(
+      "Aplicativo instalado"
+      );
+
+      }
+
+
+      deferredPrompt=null;
+      installBtn.style.display="none";
+      });
+ </script>
+
+
+
+    
+    <!--COMPARTILHAR WHATSAPP COM IDENTIDADE VISUAL -->
+    <script>
+        function compartilharWhatsApp() {
+          // 1. Captura a URL exata da página onde o usuário está no momento
+          const urlAtual = window.location.href;
+
+          // 2. Puxa o nome da empresa e do programa da memória (Identidade Visual)
+          const primeiroNome = window.PRIMEIRO_NOME || "";
+          const nomePrograma = window.NOME_PROGRAMA || "";
+
+          // 3. Monta a mensagem usando quebras de linha normais (\n) e emojis
+          const mensagem = `Olá! ${window.TRATAMENTO_MAI} ${primeiroNome} está com uma novidade: o ${nomePrograma}. 🌟\n\nTe convido para fazer parte! Cadastre-se pelo nosso aplicativo:\n\n${urlAtual}\n\nQuando fizer seu cadastro, lembre-se de informar meu CPF para que eu também possa ganhar benefícios. 😊`;
+
+          // 4. Codifica a mensagem para formato de URL e abre o WhatsApp
+          const urlWhatsapp = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensagem)}`;
+          window.open(urlWhatsapp, '_blank');
+          injetarManifestCliente(iden);
+      }
+    </script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function(registration) {
+          console.log('Service Worker do APP Fidelidade registrado com sucesso! Escopo:', registration.scope);
+        })
+        .catch(function(error) {
+          console.error('Falha ao registrar o Service Worker do Aplicativo:', error);
+        });
+    });
+  }
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Fidelidade - Offline</title>
+    <style>
+      :root{--red:#8b0000;--red2:#b31217;--gold:#f2b84b;--ink:#20242b;--muted:#737984}
+      *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 15%,rgba(139,0,0,.12),transparent 28%),radial-gradient(circle at 90% 85%,rgba(242,184,75,.13),transparent 25%),linear-gradient(135deg,#f9fafc,#eef0f5);overflow-x:hidden}.container{width:min(560px,100%);text-align:center}.card{background:rgba(255,255,255,.95);border-radius:28px;padding:42px 34px 34px;box-shadow:0 24px 70px rgba(30,35,45,.14)}.icon{width:92px;height:92px;margin:0 auto 22px;border-radius:28px;display:flex;align-items:center;justify-content:center;font-size:45px;background:linear-gradient(145deg,var(--red2),var(--red));box-shadow:0 14px 28px rgba(139,0,0,.25);animation:pulse 2.4s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}.badge{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:30px;background:#fff1f1;color:var(--red);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;margin-bottom:13px}.dot{width:7px;height:7px;border-radius:50%;background:#d11;box-shadow:0 0 0 4px rgba(209,17,17,.1)}h1{font-size:32px;line-height:1.12;margin-bottom:13px}.subtitle{font-size:15px;line-height:1.65;color:var(--muted);max-width:440px;margin:0 auto 28px}.actions{display:grid;gap:12px}button,
+          .games-button{
+            width:100%;
+            border:0;
+            border-radius:14px;
+            padding:15px 18px;
+            font-size:15px;
+            font-weight:800;
+            cursor:pointer;
+            text-decoration:none;
+            transition:.2s ease;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px
+        }
+         .reconnect{
+            background:linear-gradient(135deg,var(--red2),var(--red));
+            color:#fff;box-shadow:0 9px 20px rgba(139,0,0,.22)}.reconnect:hover,.games-button:hover{transform:translateY(-2px)}.games-button{background:#fff;color:var(--red);border:1px solid #ead7d7}.footer{margin-top:18px;color:#9a9da4;font-size:11px}.modal{display:none;position:fixed;inset:0;background:rgba(15,18,24,.58);z-index:20;padding:20px;align-items:center;justify-content:center;backdrop-filter:blur(7px)}.modal.show{display:flex}.modal-box{width:min(620px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:25px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.28)}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.modal-head h2{font-size:22px}.close{width:38px;height:38px;padding:0;border-radius:50%;background:#f4f5f7;color:#555;font-size:20px}.modal-reconnect{margin-bottom:18px}.games{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.game{text-decoration:none;color:inherit;border:1px solid #eceef2;border-radius:17px;padding:18px;text-align:left;transition:.2s;background:#fff}.game:hover{transform:translateY(-3px);border-color:#d7b1b1;box-shadow:0 10px 24px rgba(30,35,45,.09)}.game-icon{font-size:31px;margin-bottom:11px}.game h3{font-size:16px;color:var(--red);margin-bottom:5px}.game p{font-size:12px;line-height:1.45;color:var(--muted)}@media(max-width:520px){body{padding:14px}.card{padding:34px 20px 25px;border-radius:23px}h1{font-size:28px}.icon{width:80px;height:80px;font-size:38px;border-radius:24px}.games{grid-template-columns:1fr}.modal-box{padding:20px}}
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <div class="icon">📡</div>
+        <div class="badge"><span class="dot"></span> Sem conexão</div>
+        <h1>Você está offline</h1>
+        <p class="subtitle">
+          Não foi possível conectar ao sistema no momento. Verifique sua
+          internet e tente novamente. Seus dados precisam de conexão para serem
+          sincronizados com segurança.
+        </p>
+        <div class="actions">
+          <button class="reconnect" onclick="window.location.reload()">
+            ↻ &nbsp;Tentar reconectar</button>
+
+          <h3>Enquanto a internet não volta, que tal um passatempo?</h3>
+          <p>clique abaixo e confira:</p>
+          <button class="games-button" onclick="openGames()"> 🎮 &nbsp;Acessar jogos disponíveis Offline </button>
+        </div>
+        <div class="footer">Solyx Fidelidade • Modo offline</div>
+      </section>
+    </main>
+    <div class="modal" id="gamesModal" onclick="backdropClose(event)">
+      <div class="modal-box">
+
+        <div class="modal-head">
+          <h2>🎮 Jogos disponíveis</h2>
+          <button class="close" onclick="closeGames()">×</button>
+        </div>
+        <button
+          class="reconnect modal-reconnect"
+          onclick="window.location.reload()"
+        >
+          ↻ &nbsp;Tentar reconectar
+        </button>
+        <div class="games">
+          <a href="fid_game1.html" class="game"
+            ><div class="game-icon">🧮</div>
+            <h3>Calculadora</h3>
+            <p>Resolva suas contas de forma rápida e prática.</p>
+          </a>
+           <a href="fid_game2.html" class="game">
+            <div class="game-icon">🕹️</div>
+            <h3>Brick Game</h3>
+            <p>Divirta-se com clássicos retrô direto na tela.</p>
+          </a>         
+          <a href="fid_game3.html" class="game"
+            ><div class="game-icon">🧠</div>
+            <h3>Memória Educativa</h3>
+            <p>Mergulhe no universo das mais diversas carreiras, sinta a adrenalina dos esportes e divirta-se com os mais variados meios de transporte. </p>
+          </a>
+          <a href="fid_game4.html" class="game"
+            ><div class="game-icon">🧠</div>
+            <h3>Memória Educativa 2</h3>
+            <p>Um jogo estimulante que testa sua concentração e aprendizado enquanto você se diverte formando pares em três temas diferentes: países, animais, e frutas e verduras.</p>
+          </a>
+
+          <a href="fid_game7.html" class="game"
+            ><div class="game-icon">💀</div>
+            <h3>Forca Educativa</h3>
+            <p>Joguinho interativo desenvolvido para estimular o raciocínio, a atenção, a leitura e a ampliação do vocabulário de forma divertida e envolvente.</p>
+          </a>
+
+          <a href="fid_game8.html" class="game"
+            ><div class="game-icon">💀</div>
+            <h3>Forca Educativa 2</h3>
+            <p>Mais que um jogo de palavras: uma aventura pelo conhecimento.</p>
+          </a>
+          <a href="fid_game5.html" class="game"
+            ><div class="game-icon">🎓</div>
+            <h3>EduQuiz</h3>
+            <p>Teste seus conhecimentos em várias áreas.</p>
+          </a>
+          <a href="fid_game6.html" class="game"
+            ><div class="game-icon">📖</div>
+            <h3>Quiz Bíblico do Milhão (Versão Beta)</h3>
+            <p>Jornada de perguntas e respostas bíblicas, rumo a 1 milhão de pontos.</p>
+          </a>          
+        </div>
+      </div>
+    </div>
+    <script>
+      function openGames(){document.getElementById('gamesModal').classList.add('show')}function closeGames(){document.getElementById('gamesModal').classList.remove('show')}function backdropClose(e){if(e.target.id==='gamesModal')closeGames()}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGames()})
+    </script>
+  </body>
+</html>
