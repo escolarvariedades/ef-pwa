@@ -8,14 +8,14 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Escolar Fidelidade" />
+    <meta name="apple-mobile-web-app-title" content="Nome-do-seu-negocio Fidelidade" />
     <link rel="manifest" href="./manifest.json">
     <link
       rel="apple-touch-icon"
-      href="https://www.dropbox.com/scl/fi/9176rogla9fovmrc28y6x/EF_Logo_Cliente_512x512.png?rlkey=xgknlqls2vftventacyyfv6ks&raw=1"
+      href="URL_DA_SUA_LOGO_PROPORCAO-512x512.html"
     />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Escolar Fidelidade" />
+    <meta name="application-name" content="Nome-do-seu-negocio Fidelidade" />
     <meta name="msapplication-TileColor" content="#B51217" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="color-scheme" content="dark" />
@@ -23,13 +23,13 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://www.dropbox.com/scl/fi/s1jnn2d8clygn1xjcyj90/EF_Logo_Cliente_32x32.png?rlkey=d96168vnqcipf02tut5mq8vsd&raw=1"
+      href="URL_DA_SUA_LOGO_PROPORCAO-32x32.html"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="https://www.dropbox.com/scl/fi/sw991bc6enb4suv182469/EF_Logo_Cliente_192x192.png?rlkey=l2bmsiqauwewzxq1jey0g3r06&raw=1"
+      href="URL_DA_SUA_LOGO_PROPORCAO-192x192.html"
     />
     <!-- Fonte Oficial -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -576,74 +576,17 @@
       align-items:center;
       }
       .coin-visual{
-      display:flex;
-      justify-content:center;
-      }
-      .coin-fidelidade{
-      width:280px;
-      height:280px;
-      border-radius:50%;
-      background:
-      radial-gradient(
-      circle at 30% 30%,
-      #fff4a8,
-      #D4AF37 40%,
-      #8a6500
-      );
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:140px;
-      font-weight:800;
-      color:#8B0000;
-      box-shadow:
-      0 0 80px rgba(212,175,55,.35);
-      animation:
-      coinFloat 5s ease-in-out infinite;
-      }
-      .coin-fidelidade span{
-      text-shadow:
-      0 5px 15px rgba(0,0,0,.4);
-      }
-      @keyframes coinFloat{
-      0%,100%{
-      transform:translateY(0)
-      rotateY(0deg);
-      }
-      50%{
-      transform:translateY(-20px)
-      rotateY(180deg);
-      }
-      }
-      .coin-content p{
-      color:var(--muted);
-      font-size:18px;
-      margin:25px 0;
-      }
-      .coin-highlight{
-      margin:30px 0;
-      padding:20px;
-      border-radius:20px;
-      background:
-      rgba(212,175,55,.08);
-      border:
-      1px solid rgba(212,175,55,.2);
-      display:flex;
-      align-items:center;
-      gap:15px;
-      }
-      .coin-highlight i{
-      color:var(--gold);
-      font-size:30px;
-      }
-      @media(max-width:900px){
-      .coin-layout{
-      grid-template-columns:1fr;
-      text-align:center;
-      }
-        .coin-highlight{
+        display:flex;
         justify-content:center;
-        }
+        align-items:center;
+      }
+
+      .coin-gif{
+        width:280px;
+        height:280px;
+        object-fit:contain;
+        display:block;
+  
       }
       /* =====================================================
          VITRINE PREMIUM DE PRÊMIOS
@@ -1254,10 +1197,12 @@ display:none; padding-left: 20px; }
       <div class="container">
         <div class="grid grid-2 coin-layout">
           <div class="coin-visual">
-            <div class="coin-fidelidade">
-              <span class="letra-moeda-dinamica"></span>
-            </div>
-          </div>
+          <img 
+            src="https://www.dropbox.com/scl/fi/9pbcheocv0zjj6tpy2ing/EFcoin_3D.gif?rlkey=y2zx8pys3pb8opmjan5un0ckq&raw=1"
+            alt="Moeda Oficial"
+            class="coin-gif"
+          />
+        </div>
 
           <div class="coin-content">
             <span class="badge badge-gold"> MOEDA OFICIAL </span>
@@ -2030,8 +1975,8 @@ display:none; padding-left: 20px; }
 <script>
 // =========================================================================
     // FIDELIDADE.NET.BR IDENTIDADE VISUAL DINÂMINCA 5.2
-   
-    const API_URL = "https://script.google.com/macros/s/AKfycbwbEInUheQINSyYm9StDr6q76R7PZ3lzHB7Kt0_4ytES2vPt6qSLltZS3jq4QutJ_JydA/exec"; 
+    // A ÚNICA URL QUE FICA FIXA (A Ponte de Conexão com o Banco de Dados) - ADICIONAR SOMENTE SE NÃO ESTIVER DISPONÍVEL NA PÁGINA
+    const API_URL = "URL_APPS_SCRIPT_AQUI"; //  COLOQUE SUA URL AQUI
 // ==========================================
 // FUNÇÕES DE IDENTIDADE VISUAL
 
