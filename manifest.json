@@ -1,11 +1,11 @@
 {
-  "name": "Solyx Fidelidade",
-  "short_name": "Solyx Fidelidade",
-  "description": "Programa Oficial Solyx Fidelidade",
+  "name": "Escolar Fidelidade",
+  "short_name": "Escolar Fidelidade",
+  "description": "Programa Oficial Escolar Fidelidade",
 
-  "start_url": "https://appsolyxfidelidade.blogspot.com/",
+  "start_url": "https://escolarfidelidade.blogspot.com/p/index.html",
 
-  "scope": "https://appsolyxfidelidade.blogspot.com/",
+  "scope": "https://escolarfidelidade.blogspot.com/p/index.html",
 
   "display": "standalone",
 
@@ -17,7 +17,7 @@
 
   "icons": [
     {
-      "src": "https://www.dropbox.com/scl/fi/aerzmsvnnlsa6e14ket13/SF_512x512_Cliente.png?rlkey=tyn0narcis68k03is68sddtfs&raw=1",
+      "src": "https://www.dropbox.com/scl/fi/9176rogla9fovmrc28y6x/EF_Logo_Cliente_512x512.png?rlkey=xgknlqls2vftventacyyfv6ks&raw=1",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
