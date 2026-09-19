@@ -12,7 +12,7 @@
     <link rel="manifest" href="./manifest.json">
     <link
       rel="apple-touch-icon"
-      href="URL_DA_SUA_LOGO_PROPORCAO-512x512.html"
+      href="https://www.dropbox.com/scl/fi/9176rogla9fovmrc28y6x/EF_Logo_Cliente_512x512.png?rlkey=xgknlqls2vftventacyyfv6ks&raw=1"
     />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Nome-do-seu-negocio Fidelidade" />
@@ -23,13 +23,13 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="URL_DA_SUA_LOGO_PROPORCAO-32x32.html"
+      href="https://www.dropbox.com/scl/fi/s1jnn2d8clygn1xjcyj90/EF_Logo_Cliente_32x32.png?rlkey=d96168vnqcipf02tut5mq8vsd&raw=1"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="URL_DA_SUA_LOGO_PROPORCAO-192x192.html"
+      href="https://www.dropbox.com/scl/fi/sw991bc6enb4suv182469/EF_Logo_Cliente_192x192.png?rlkey=l2bmsiqauwewzxq1jey0g3r06&raw=l"
     />
     <!-- Fonte Oficial -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2008,9 +2008,11 @@ async function carregarIdentidadeVisual() {
             if (document.getElementById('idAppClaw')) document.getElementById('idAppClaw').value = iden.URL_ClawMachine || '';
             if (document.getElementById('idAppPescaria')) document.getElementById('idAppPescaria').value = iden.URL_Pescaria || '';
             
-            // --- APLICADA SÓ A COR 2 DO BG ---
+            // --- INÍCIO DA CORREÇÃO DAS PALETAS ---
+            window.BG_COR1 = iden["BG_COR1"] || "#1a1a1a";
             window.BG_COR2 = iden["BG_COR2"] || "#550000";
 
+            if (document.getElementById('idBgCor1')) document.getElementById('idBgCor1').value = window.BG_COR1;
             if (document.getElementById('idBgCor2')) document.getElementById('idBgCor2').value = window.BG_COR2;
             // --- FIM DA CORREÇÃO DAS PALETAS ---
         }
