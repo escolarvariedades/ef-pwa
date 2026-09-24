@@ -1305,41 +1305,37 @@ display:none; padding-left: 20px; }
         </div>
 
         <div class="grid grid-3 prizes-grid">
-          <!-- PRÊMIO 01 -->
+
+        <!-- Prêmio 01: Campanha Solidária -->
 
           <div class="prize-card card-premium reveal">
             <div class="prize-image">
-              <img
-                src="https://www.dropbox.com/scl/fi/gwkovkafyewytiy6tdykf/Cliente_Premiado_Cashback50.png?rlkey=wmhpnlml59o8jaajwdta3ejl3&raw=1"
-                alt="CASHBACK"
-              />
+              <img id="imgCampanhaSolidaria" src="" alt="SOLIDARIEDADE" />
             </div>
 
             <div class="prize-content">
               <span class="badge badge-gold">
-                100.000&nbsp;<span class="moeda-dinamica"></span>
+                SOLIDARIEDADE
               </span>
 
-              <h3>CASHBACK</h3>
+              <h3>Pontos que Fazem o Bem!</h3>
 
-              <p>Escolha o valor disponível conforme a campanha vigente.</p>
+              <p>Participe das nossas campanhas solidárias, ajude quem precisa e ainda acumule pontos para trocar por brindes.</p>
 
               <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
                 <i class="bi bi-stars"></i>
 
-                Quero conquistar
+                Quero Participar
               </a>
             </div>
           </div>
 
-          <!-- PRÊMIO 02 -->
+
+            <!-- Prêmio 02: 1º Lugar Ranking Mensal -->
 
           <div class="prize-card card-premium reveal">
             <div class="prize-image">
-              <img
-                src="https://www.dropbox.com/scl/fi/fp6ingezom0ntnsyi6zz6/Vale-Cinema_DoseDupla.jfif?rlkey=5l0mb84xmndbpvmsshg7cznmr&raw=1"
-                alt="Vale Cinema"
-              />
+              <img id="imgRankingMensal" src="" alt="Premio do mes" />
             </div>
 
             <div class="prize-content">
@@ -1347,33 +1343,32 @@ display:none; padding-left: 20px; }
                 325.000&nbsp;<span class="moeda-dinamica">" " </span>
               </span>
 
-              <h3>Vale Cinema</h3>
+              <h3>Quem Se Destaca, É Recompensado!</h3>
 
-              <p>Momentos especiais também fazem parte das recompensas.</p>
+              <p>Some pontos, suba no ranking e concorra todos os meses a prêmios especiais em nosso GP.</p>
 
               <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
                 <i class="bi bi-stars"></i>
-                Quero conquistar
+                Quero também!
               </a>
             </div>
           </div>
 
-          <!-- PRÊMIO 03 -->
+            <!-- Prêmio 03: Ranking Anual -->
 
           <div class="prize-card card-premium reveal">
-            <div class="prize-image">
-              <img
-                src="https://www.dropbox.com/scl/fi/x50epkz6f1x2oy0ylh2v9/Chek-inPremiado_01.jfif?rlkey=wjjkccavftfz4sj7y0hikwt51&raw=1"
-                alt="Check-in Premiado"
-              />
-            </div>
-            <div class="prize-content">
-              <span class="badge badge-gold"> 1º LUGAR NO RANKING ANUAL </span>
 
-              <h3>Check-in Premiado</h3>
+            <div class="prize-image">
+              <img id="imgRankingAnual" src="" alt="Premio do ano" />
+            </div>
+
+            <div class="prize-content">
+              <span class="badge badge-gold"> 1º LUGAR </span>
+
+              <h3>Quem Faz História, Ganha no Final!</h3>
 
               <p>
-                Experiências únicas para clientes que participam do programa.
+                Recompensas especiais para quem mais acumula mais medalhas no decorrer do ano, transformando seus pontos em liderança, e fechar o ano no topo do ranking.
               </p>
 
               <a href="javascript:abrirModalCadastro();" class="btn btn-gold">
@@ -2098,7 +2093,7 @@ async function salvarIdentidadeVisual() {
         URL_Roleta: document.getElementById('idAppRoleta').value,
         URL_ClawMachine: document.getElementById('idAppClaw').value,
         URL_Pescaria: document.getElementById('idAppPescaria').value,
-      	URL_Sorteios: document.getElementById('idAppSorteios').value,
+        URL_Sorteios: document.getElementById('idAppSorteios').value,
         URL_RoletaInterativa: document.getElementById('idAppRoletaInterativa').value,
         URL_Campanhas: document.getElementById('idAppCampanhas').value,
       
@@ -2241,7 +2236,7 @@ async function salvarIdentidadeVisual() {
         
         // Nome do Bot
         document.querySelectorAll('.nome-bot-dinamico').forEach(el => el.innerText = window.NOME_BOT);
-		//  Dispara a sua função do cabeçalho do FAQ!
+        //  Dispara a sua função do cabeçalho do FAQ!
         if (typeof aplicarIdentidadeBotFaq === "function") {
             aplicarIdentidadeBotFaq(window.NOME_BOT, window.AVATAR_BOT);
         }
@@ -2258,14 +2253,14 @@ async function salvarIdentidadeVisual() {
         });
         document.querySelectorAll('.alt-dinamico').forEach(img => img.alt = window.NOME_PROGRAMA);
       
-      	 // 6. BACKGROUNDS DINAMICOS
+         // 6. BACKGROUNDS DINAMICOS
 
               // Injeta a cor de fundo primária nos elementos com a classe bg-dinamico
         document.querySelectorAll('.bg-dinamico').forEach(el => {
             el.style.background = window.BG_COR1; 
         });
 
-    	    // Injeta o gradiente completo nos elementos com a classe bg-dinamico
+            // Injeta o gradiente completo nos elementos com a classe bg-dinamico
         document.querySelectorAll('.bg-dinamico').forEach(el => {
             el.style.background = `linear-gradient(335deg, ${window.BG_COR1} 0%, ${window.BG_COR2} 150%)`;
         });
@@ -2534,6 +2529,44 @@ async function salvarIdentidadeVisual() {
             2. Selecione <strong>"Adicionar à Tela de Início"</strong> <b style="font-size:18px; color: var(--primary); vertical-align: middle;"><i class="bi bi-plus-square"></i></b>.
         </p>
     </div>
+<!--OBTÉM IMAGEM DE PRÊMIOS E CAMPANHAS-->
+    <script>
+    async function carregarImagensPremios() {
+        try {
+            // 1. Busca a imagem da Campanha Solidária
+            const resSolidaria = await fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify({ action: 'obter_campanha_solidaria' })
+            }).then(r => r.json());
+
+            if (resSolidaria.status === 'success' && resSolidaria.dados) {
+                const urlCampanha = resSolidaria.dados["Campanha Solidaria Imagem"];
+                if (urlCampanha) document.getElementById('imgCampanhaSolidaria').src = urlCampanha;
+            }
+
+            // 2. Busca as imagens dos Rankings (Mensal e Anual)
+            const resRanking = await fetch(API_URL, {
+                method: 'POST',
+                body: JSON.stringify({ action: 'dados_ranking_admin' })
+            }).then(r => r.json());
+
+            if (resRanking.status === 'success' && resRanking.premiosSalvos) {
+                const premios = resRanking.premiosSalvos;
+                
+                // Imagem 1º Lugar Mensal (corresponde ao id "p1U" no admin salvo como "p1Url")
+                if (premios.p1Url) document.getElementById('imgRankingMensal').src = premios.p1Url;
+                
+                // Imagem Prêmio Anual (corresponde ao id "paAnualImg" no admin salvo como "premioAnualUrl")
+                if (premios.premioAnualUrl) document.getElementById('imgRankingAnual').src = premios.premioAnualUrl;
+            }
+        } catch (error) {
+            console.error("Erro ao carregar as imagens dinâmicas dos prêmios:", error);
+        }
+    }
+
+    // Executa a requisição assim que o DOM estiver pronto
+    document.addEventListener("DOMContentLoaded", carregarImagensPremios);
+    </script>
 
     <script>
         // Lógica inteligente para mostrar o aviso apenas para quem está no iPhone e ainda não instalou
