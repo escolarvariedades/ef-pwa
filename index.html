@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <style>
+  /* iFrame de Manutenção */
+#iframeManutencao {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: 999999; /* Fica por cima de absolutamente tudo */
+    background: #fff;
+}
+/* Esconde o resto da página quando em manutenção */
+body.em-manutencao > *:not(#iframeManutencao) {
+    display: none !important;
+}
+  </style>
     <title>Programa de Fidelização de Clientes</title>
     <meta charset="UTF-8" />
     <meta name="viewport"  content="width=device-width, initial-scale=1, viewport-fit=cover"  />
@@ -1008,6 +1026,87 @@ display:none; padding-left: 20px; }
     
   </head>
   <body>
+    <!-- MANUTENCAO PROGRAMADA -->
+<!-- SISTEMA DE MANUTENÇÃO BLINDADO -->
+  
+  <script>
+async function verificarManutencaoAtiva() {
+    try {
+        
+        const URL_SERVIDOR = "https://script.google.com/macros/s/AKfycbzHA4TcalVhTkraPstdYtv-IJyo7datt6kK3bAJnZGa4-RIhcvo07MADALfAhc-4knY/exec";
+
+        
+        const response = await fetch(URL_SERVIDOR, {
+            method: 'POST',
+            body: JSON.stringify({ action: "obter_manutencao" })
+        });
+        
+        const data = await response.json();
+        
+        if (data.status === "success" && data.manutencaoStatus === "Ativado") {
+            
+            // Trava de Segurança
+            if (!data.manutencaoUrl || data.manutencaoUrl.trim() === "") return;
+
+            const agora = new Date();
+
+            // Tradutor interno de datas protegido
+            function traduzirData(str) {
+                if (!str) return null;
+                let limpa = String(str).replace(/'/g, '').trim(); 
+                if (limpa.includes('T') && limpa.split(':').length === 2) limpa += ':00';
+                const d = new Date(limpa);
+                return isNaN(d.getTime()) ? null : d;
+            }
+
+            const dataInicio = traduzirData(data.manutencaoInicio);
+            const dataFim = traduzirData(data.manutencaoFim);
+
+            let emManutencao = true;
+            if (dataInicio && agora < dataInicio) emManutencao = false;
+            if (dataFim && agora > dataFim) emManutencao = false;
+
+            if (emManutencao) {
+                let fimLimpo = data.manutencaoFim ? String(data.manutencaoFim).replace(/'/g, '').trim() : "";
+                let urlIframe = data.manutencaoUrl.trim();
+                if (fimLimpo) urlIframe += "?fim=" + encodeURIComponent(fimLimpo);
+
+                let iframeOverlay = document.getElementById('bloqueioManutencaoIframe');
+                if (!iframeOverlay) {
+                    iframeOverlay = document.createElement('div');
+                    iframeOverlay.id = 'bloqueioManutencaoIframe';
+                    iframeOverlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #1a1a1a; z-index: 99999999; margin: 0; padding: 0;';
+                    document.body.appendChild(iframeOverlay);
+                }
+                
+                iframeOverlay.innerHTML = `<iframe src="${urlIframe}" style="width: 100%; height: 100%; border: none; margin: 0; padding: 0;"></iframe>`;
+                iframeOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden'; 
+            }
+        }
+    } catch(e) {
+        
+        alert("❌ Erro ao verificar manutenção: " + e.toString());
+    }
+}
+
+// Acionamento Seguro Imediato
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", verificarManutencaoAtiva);
+} else {
+    verificarManutencaoAtiva();
+}
+
+// Liberação mágica quando o contador zera
+window.addEventListener('message', function(event) {
+    if (event.data === 'manutencao_encerrada') {
+        const overlay = document.getElementById('bloqueioManutencaoIframe');
+        if (overlay) overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>
+  
     <div id="progressBar"></div>
 
     <!-- =====================================================
